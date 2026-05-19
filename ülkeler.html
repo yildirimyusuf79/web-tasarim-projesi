@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ülkeler - Countrypedia</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #eef2f3;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* YATAY ORTALAMA */
+}
+
+.content {
+    margin-top: 100px;
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+}
+
+        .topbar {
+            width: 100%;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .menu-btn {
+            position: absolute;
+            left: 20px;
+            top: 15px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #1c1c1c;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            left: -260px;
+            top: 60px;
+            transition: left 0.3s ease-in-out;
+        }
+        .sidebar.active {
+            left: 0;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 30px;
+        }
+        .sidebar ul li {
+            padding: 10px;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+      
+        .country-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            justify-items: center;
+        }
+        
+        
+        .country-card {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 220px;
+            text-align: center;
+        }
+        .country-card img {
+            width: 100px;
+            height: 60px;
+            border-radius: 5px;
+        }
+        .back-btn {
+            display: inline;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #0056b3;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .country-card h3 {
+            margin: 10px 0 5px;
+            font-size: 18px;
+            color: #003366;
+        }
+        .country-card p {
+            margin: 2px 0;
+            font-size: 14px;
+        }
+        .country-card:hover {
+            transform: scale(1.03);
+            transition: 0.3s;
+        }
+        .search-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    
+        .search-input {
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            max-width: 400px;
+            margin-top: 10px;
+        }
+        
+    </style>
+    <script>
+        function filterCountries() {
+            var input = document.getElementById('countrySearch');
+            var filter = input.value.toLowerCase();
+            var cards = document.querySelectorAll('.country-card');
+            
+            cards.forEach(function(card) {
+                var countryName = card.querySelector('h3').textContent.toLowerCase();
+                if (countryName.indexOf(filter) > -1) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+    <script>
+        
+        function toggleMenu() {
+            document.querySelector(".sidebar").classList.toggle("active");
+        }
+        document.addEventListener("click", function(event) {
+            var sidebar = document.querySelector(".sidebar");
+            var menuBtn = document.querySelector(".menu-btn");
+            if (!sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
+                sidebar.classList.remove("active");
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="topbar">
+        <button class="menu-btn" onclick="toggleMenu()">☰ Menü</button>
+        Countrypedia - Ülkeler
+    </div>
+    
+    <div class="sidebar">
+        <h2>Menü</h2>
+        <ul>
+            <li><a href="index.html">Anasayfa</a></li>
+            <li><a href="ülkeler.html">Ülkeler</a></li>
+            <li><a href="gezilecek_yerler.html">Gezilecek Yerler</a></li>
+            <li><a href="kultur_ve_gelenekler.html">Kültür ve Gelenekler</a></li>
+            <li><a href="tarihi_gelismeler.html">Tarihi Gelişmeler</a></li>
+            <li><a href="iklim_ve_cografya.html">İklim ve Coğrafya</a></li>
+            <li><a href="iletisim.html">İletişim</a></li>
+            <li><a href="hakkımızda.html">Hakkımızda</a></li>
+
+        </ul>
+    </div>
+    
+    <div class="content">
+        <h2>Ülkeler Listesi</h2>
+        <!-- Arama Çubuğu -->
+    <div class="search-container">
+        <input type="text" id="countrySearch" placeholder="Ülke ara..." onkeyup="filterCountries()" class="search-input">
+    </div>
+        <div class="country-list">
+
+        <div class="country-card">
+            <a href="ülkeler/turkiye.html" style="text-decoration: none; color: inherit;">
+                <img src="resimler/Türkiye.png" alt="Türkiye Bayrağı">
+                <h3>Türkiye</h3>
+                <p><strong>Başkent:</strong> Ankara</p>
+                <p><strong>Yüzölçümü:</strong> 783.562 km²</p>
+                <p><strong>Nüfus:</strong> 84 milyon</p>
+                <p><strong>Para Birimi:</strong> Türk Lirası (TRY)</p>
+            </a>
+        </div>
+        
+        <div class="country-card">
+            <a href="ülkeler/azerbaycan.html" style="text-decoration: none; color: inherit;">
+                <img src="resimler/Azerbaycan.png" alt="Azerbaycan Bayrağı">
+                <h3>Azerbaycan</h3>
+                <p><strong>Başkent:</strong> Bakü</p>
+                <p><strong>Yüzölçümü:</strong> 86.600 km²</p>
+                <p><strong>Nüfus:</strong> 10 milyon</p>
+                <p><strong>Para Birimi:</strong> Manat (AZN)</p>
+            </a>
+        </div>
+        
+        <div class="country-card">
+            <a href="ülkeler/isvicre.html" style="text-decoration: none; color: inherit;">
+                <img src="resimler/İsviçre.png" alt="İsviçre Bayrağı">
+                <h3>İsviçre</h3>
+                <p><strong>Başkent:</strong> Bern</p>
+                <p><strong>Yüzölçümü:</strong> 41.290 km²</p>
+                <p><strong>Nüfus:</strong> 8,7 milyon</p>
+                <p><strong>Para Birimi:</strong> İsviçre Frangı (CHF)</p>
+            </a>
+        </div>
+        
+        <div class="country-card">
+            <a href="ülkeler/singapur.html" style="text-decoration: none; color: inherit;">
+                <img src="resimler/Singapur.png" alt="Singapur Bayrağı">
+                <h3>Singapur</h3>
+                <p><strong>Başkent:</strong> Singapur</p>
+                <p><strong>Yüzölçümü:</strong> 728,6 km²</p>
+                <p><strong>Nüfus:</strong> 5,9 milyon</p>
+                <p><strong>Para Birimi:</strong> Singapur Doları (SGD)</p>
+            </a>
+        </div>
+        
+        <div class="country-card">
+            <a href="ülkeler/arjantin.html" style="text-decoration: none; color: inherit;">
+                <img src="resimler/Arjantin.png" alt="Arjantin Bayrağı">
+                <h3>Arjantin</h3>
+                <p><strong>Başkent:</strong> Buenos Aires</p>
+                <p><strong>Yüzölçümü:</strong> 2.780.400 km²</p>
+                <p><strong>Nüfus:</strong> 45 milyon</p>
+                <p><strong>Para Birimi:</strong> Arjantin Pesosu (ARS)</p>
+            </a>
+        </div>
+        
+        <div class="country-card">
+            <a href="ülkeler/almanya.html" style="text-decoration: none; color: inherit;">
+                <img src="resimler/Almanya.png" alt="Almanya Bayrağı">
+                <h3>Almanya</h3>
+                <p><strong>Başkent:</strong> Berlin</p>
+                <p><strong>Yüzölçümü:</strong> 357.386 km²</p>
+                <p><strong>Nüfus:</strong> 83 milyon</p>
+                <p><strong>Para Birimi:</strong> Euro (EUR)</p>
+            </a>
+        </div>
+        
+        <div class="country-card">
+            <a href="ülkeler/abd.html" style="text-decoration: none; color: inherit;">
+                <img src="resimler/Amerika.png" alt="Amerika Bayrağı">
+                <h3>Amerika Birleşik Devletleri</h3>
+                <p><strong>Başkent:</strong> Washington, D.C.</p>
+                <p><strong>Yüzölçümü:</strong> 9.834.000 km²</p>
+                <p><strong>Nüfus:</strong> 331 milyon</p>
+                <p><strong>Para Birimi:</strong> Amerikan Doları (USD)</p>
+            </a>
+        </div>
+        
+        <div class="country-card">
+            <a href="ülkeler/ingiltere.html" style="text-decoration: none; color: inherit;">
+                <img src="resimler/İngiltere.png" alt="İngiltere Bayrağı">
+                <h3>İngiltere</h3>
+                <p><strong>Başkent:</strong> Londra</p>
+                <p><strong>Yüzölçümü:</strong> 130.395 km²</p>
+                <p><strong>Nüfus:</strong> 67 milyon</p>
+                <p><strong>Para Birimi:</strong> Sterlin (GBP)</p>
+            </a>
+        </div>
+        
+        <div class="country-card">
+            <a href="ülkeler/italya.html" style="text-decoration: none; color: inherit;">
+                <img src="resimler/İtalya.png" alt="İtalya Bayrağı">
+                <h3>İtalya</h3>
+                <p><strong>Başkent:</strong> Roma</p>
+                <p><strong>Yüzölçümü:</strong> 301.340 km²</p>
+                <p><strong>Nüfus:</strong> 60 milyon</p>
+                <p><strong>Para Birimi:</strong> Euro (EUR)</p>
+            </a>
+        </div>
+        
+        <div class="country-card">
+            <a href="ülkeler/kanada.html" style="text-decoration: none; color: inherit;">
+                <img src="resimler/Kanada.png" alt="Kanada Bayrağı">
+                <h3>Kanada</h3>
+                <p><strong>Başkent:</strong> Ottawa</p>
+                <p><strong>Yüzölçümü:</strong> 9.984.670 km²</p>
+                <p><strong>Nüfus:</strong> 38 milyon</p>
+                <p><strong>Para Birimi:</strong> Kanada Doları (CAD)</p>
+            </a>
+        </div>
+        <div class="country-card">
+            <a href="ülkeler/fransa.html" style="text-decoration: none; color: inherit;">
+                <img src="resimler/Fransa.png" alt="Fransa Bayrağı">
+                <h3>Fransa</h3>
+                <p><strong>Başkent:</strong> Paris</p>
+                <p><strong>Yüzölçümü:</strong> 643.801 km²</p>
+                <p><strong>Nüfus:</strong> 67 milyon</p>
+                <p><strong>Para Birimi:</strong> Euro (EUR)</p>
+            </a>
+        </div>
+        
+        <div class="country-card">
+            <a href="ülkeler/ispanya.html" style="text-decoration: none; color: inherit;">
+                <img src="resimler/İspanya.png" alt="İspanya Bayrağı">
+                <h3>İspanya</h3>
+                <p><strong>Başkent:</strong> Madrid</p>
+                <p><strong>Yüzölçümü:</strong> 505.992 km²</p>
+                <p><strong>Nüfus:</strong> 47 milyon</p>
+                <p><strong>Para Birimi:</strong> Euro (EUR)</p>
+            </a>
+        </div>
+        
+        
+        
+        <a href="index.html" class="back-btn">Geri Dön</a>
+    </div>
+</body>
+</html>

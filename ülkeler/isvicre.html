@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İsviçre - Countrypedia</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eef2f3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .topbar {
+            width: 100%;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .menu-btn {
+            position: absolute;
+            left: 20px;
+            top: 15px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #1c1c1c;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            left: -260px;
+            top: 60px;
+            transition: left 0.3s ease-in-out;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 30px;
+        }
+
+        .sidebar ul li {
+            padding: 10px;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+
+        .content {
+            margin-top: 100px;
+            width: 90%;
+            max-width: 900px;
+            text-align: left;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+               .flag {
+    width: 200px; 
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+        .map {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #003366;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #0056b3;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .kultur-bolumu {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.kultur-kart {
+    background-color: #f9f9f9;
+    border-left: 5px solid #0056b3;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.kultur-kart p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.kultur-kart strong {
+    color: #0056b3;
+    font-size: 18px;
+}
+
+.kultur-kart img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-top: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+    </style>
+    <script>
+        function toggleMenu() {
+            document.querySelector(".sidebar").classList.toggle("active");
+        }
+
+        document.addEventListener("click", function(event) {
+            var sidebar = document.querySelector(".sidebar");
+            var menuBtn = document.querySelector(".menu-btn");
+            if (!sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
+                sidebar.classList.remove("active");
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="topbar">
+        <button class="menu-btn" onclick="toggleMenu()">☰ Menü</button>
+        Countrypedia - İsviçre
+    </div>
+
+    <div class="sidebar">
+        <h1>Menü</h1>
+        <ul>
+            <li><a href="../index.html">Anasayfa</a></li>
+            <li><a href="../ülkeler.html">Ülkeler</a></li>
+            <li><a href="../gezilecek_yerler.html">Gezilecek Yerler</a></li>
+            <li><a href="../kultur_ve_gelenekler.html">Kültür ve Gelenekler</a></li>
+            <li><a href="../tarihi_gelismeler.html">Tarihi Gelişmeler</a></li>
+            <li><a href="../iklim_ve_cografya.html">İklim ve Coğrafya</a></li>
+            <li><a href="../iletisim.html">İletişim</a></li>
+            <li><a href="../hakkımızda.html">Hakkımızda</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <img src="../resimler/İsviçre.png" alt="İsviçre Bayrağı" class="flag">
+        <h2>İsviçre</h2>
+        <p><strong>Başkent:</strong> Bern</p>
+        <p><strong>Yüzölçümü:</strong> 41.290 km²</p>
+        <p><strong>Nüfus:</strong> Yaklaşık 8 milyon</p>
+        <p><strong>Para Birimi:</strong> İsviçre Frangı (CHF)</p>
+        <p>
+            İsviçre, Orta Avrupa'da yer alan, dağlık arazisi ve dünya çapında ün kazanan bankacılık sistemi ile bilinen bir ülkedir.
+            Zürih ve Cenevre gibi büyük şehirleriyle öne çıkar ve uluslararası organizasyonlara ev sahipliği yapar.
+            İsviçre, dört resmi dilin konuşulduğu, çok kültürlü ve özgür bir ülkedir.
+        </p>
+
+        <!-- İsviçre Haritası -->
+        <img src="../resimler/isvicre_haritası.png" alt="İsviçre Haritası" class="map">
+
+
+        <!-- İklim ve Coğrafya Bilgisi -->
+        <h3>İklim ve Coğrafya</h3>
+        <p><strong>Coğrafya:</strong> İsviçre, Orta Avrupa'da yer almakta olup, çevresinde Fransa, Almanya, İtalya, Avusturya ve Lihtenştayn ile kara sınırlarına sahiptir. Ülke, Alpler Dağları'nın etkisiyle oldukça dağlık bir yapıya sahiptir. Ayrıca, çok sayıda gölet ve akarsu da İsviçre'nin doğal zenginlikleri arasında yer almaktadır.</p>
+        <p><strong>İklim:</strong> İsviçre'nin iklimi, Alpler'in etkisiyle çeşitlenmiştir. Ülkenin güneyinde, İtalya'ya yakın bölgelerde daha ılıman bir iklim görülürken, kuzey ve dağlık bölgelerde daha soğuk iklim hakimdir. Kışlar genellikle soğuk ve kar yağışlı, yazlar ise ılıman geçmektedir. İsviçre, dağlık yapısı nedeniyle farklı iklim bölgelerini içinde barındırmaktadır.</p>
+        
+        
+        <h3>Tarihi Gelişmeler</h3>
+        <p>İsviçre'nin tarihi, bölgenin antik çağlara dayanan kökenlerine sahiptir. Orta Çağ'da, İsviçre bir dizi yerel konfederasyona bölünmüş ve 1291'de yapılan Eidgenossenschaft (İsviçre Konfederasyonu) anlaşmasıyla birleşmişlerdir. Bu, İsviçre'nin bağımsızlık yolundaki ilk adım olarak kabul edilir. 1515'teki Marignano Savaşı'nda Fransızlar'a karşı büyük bir yenilgiye uğrasalar da, dış dünyaya kapalı kalmayı tercih etmişlerdir. Bu dönemde, İsviçre’nin tarafsızlık politikası kökleşmiştir.</p>
+        <p>19. yüzyılda, özellikle 1848'deki anayasa kabulüyle, modern İsviçre devleti kurulmuştur. Bu anayasa, federal bir yapı kurarak, ülkedeki kantonların (bölgesel yönetimler) otonomilerini korumalarına imkan tanımıştır. Bu dönemde, İsviçre'nin bankacılık sistemi güçlenmiş ve ülkede sanayi devrimi başlamıştır.</p>
+        <p>İsviçre, I. Dünya Savaşı'nda tarafsızlık politikasını sürdürerek dışarıda kalmıştır. II. Dünya Savaşı sırasında da aynı şekilde tarafsız kalmayı başarmıştır. 20. yüzyılın ortalarında, İsviçre uluslararası diplomasi ve insani yardımda önemli bir rol üstlenmiş, Birleşmiş Milletler ve diğer uluslararası kuruluşlarda aktif bir şekilde yer almıştır.</p>
+        <p>Bugün, İsviçre'nin tarafsızlık politikası, dünya çapında tanınmış ve saygı duyulmuştur. Aynı zamanda ülke, küresel finans ve ekonomi alanında güçlü bir etkiye sahiptir. İsviçre’nin tarihi, her zaman özgürlük, bağımsızlık ve tarafsızlık ile anılmıştır.</p>
+        
+        <div class="kultur-bolumu">
+    <div class="kultur-kart">
+        <p><strong>Bayramlar:</strong><br>İsviçre’nin en önemli milli bayramı 1 Ağustos Ulusal Gündür. Bu günde ülkenin dört bir yanında havai fişek gösterileri, konuşmalar, geleneksel müzikler ve fener alayları düzenlenir. Ayrıca dini bayramlar da yöresel kutlamalarla öne çıkar; Katolik kantonlarında Noel ve Paskalya süslemeleri ve etkinlikleri dikkat çeker.</p>
+        <img src="../resimler/isvicre_alp.jpg" alt="İsviçre Bayramlar">
+    </div>
+
+    <div class="kultur-kart">
+        <p><strong>Peynir Fondü:</strong><br>İsviçre mutfağının en ikonik yemeklerinden biri olan fondü, eritilmiş peynirin ekmek parçalarına batırılarak yenmesiyle servis edilir. Özellikle kış aylarında ailelerin bir araya gelerek paylaştığı sıcak ve samimi bir gelenektir.</p>
+        <img src="../resimler/isvicre_fondu.jpg" alt="İsviçre Fondü">
+    </div>
+
+    <div class="kultur-kart">
+        <p><strong>Yodel:</strong><br>Alp dağları ile özdeşleşmiş olan yodel, inişli çıkışlı seslerle yapılan bir halk müziği tarzıdır. Özellikle kırsal bölgelerde hala icra edilir ve İsviçre kültürel mirasının önemli bir parçasıdır.</p>
+        <img src="../resimler/isvicre_yodel.jpg" alt="İsviçre Yodel">
+    </div>
+</div>
+<div class="kultur-kart">
+    <img src="../resimler/Zermatt.jpeg" alt="Zermatt">
+    <p><strong>Zermatt - İsviçre</strong></p>
+    <p class="info-text">
+      Zermatt, İsviçre'nin en popüler dağ kasabalarından biridir ve özellikle kayak ve dağcılıkla ünlüdür. 
+      Matterhorn Dağı'nın eteğinde yer alan bu kasaba, her yıl binlerce turist tarafından ziyaret edilmektedir. 
+      Zermatt, araç trafiğine kapalı olmasıyla da bilinir ve sakin atmosferi, zarif otelleri ve restoranları ile doğa severlere huzurlu bir kaçış sunar.
+    </p>
+</div>
+<div class="kultur-kart">
+    <img src="../resimler/Cenevregölü.jpeg" alt="Cenevre Gölü">
+    <p><strong>Cenevre Gölü - İsviçre</strong></p>
+    <p class="info-text">
+      Cenevre Gölü, İsviçre'nin en büyük göllerinden biri olup, Fransız sınırına yakın bir konumda yer almaktadır. 
+      Göl, Cenevre şehrinin hemen yanında yer alır ve çevresinde birçok lüks otel, restoran ve park bulunur. 
+      Cenevre Gölü, özellikle tekne turları, su sporları ve eşsiz manzaralarıyla ünlüdür. Ayrıca, gölün kıyısındaki Mont Blanc Dağı'na bakan panoramik manzaralar, bölgeyi fotoğrafçılar ve doğa severler için cazip kılar.
+    </p>
+</div>
+<div class="kultur-kart">
+    <img src="../resimler/Luzerngölü.jpeg" alt="Luzern Gölü">
+    <p><strong>Luzern Gölü - İsviçre</strong></p>
+    <p class="info-text">
+      Luzern Gölü, İsviçre'nin en güzel göllerinden biri olup, Luzern şehri ile aynı ismi taşır. 
+      Alplerin eteklerinde yer alan bu göl, ziyaretçilerine olağanüstü dağ manzaraları sunar. 
+      Gölün etrafındaki köyler ve kasabalar, bölgenin tarihini ve kültürünü yansıtan zarif yapılarıyla ünlüdür. 
+      Ayrıca, Luzern Gölü çevresinde tekne turları ve doğa yürüyüşleri gibi çeşitli açık hava etkinlikleri yapılabilmektedir.
+    </p>
+</div>
+
+
+
+        <a href="../ülkeler.html" class="back-btn">← Geri Dön</a>
+    </div>
+</body>
+</html>

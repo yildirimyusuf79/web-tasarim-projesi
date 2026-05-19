@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eef2f3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Üst Menü */
+        .topbar {
+            width: 100%;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .menu-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            position: absolute;
+            left: 20px;
+            top: 25px;
+        }
+
+        /* Yan Menü */
+        .sidebar {
+            width: 250px;
+            background-color: #1c1c1c;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            left: -260px;
+            top: 60px;
+            transition: left 0.3s ease-in-out;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 30px;
+        }
+
+        .sidebar ul li {
+            padding: 10px;
+        }
+
+        .sidebar ul li a {
+            color: white; /* Yazıyı beyaz yapar */
+            text-decoration: none;
+            display: block;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #0056b3;
+        }
+
+        /* Sayfa İçeriği */
+        .content {
+            margin-top: 130px;
+            width: 90%;
+            max-width: 1200px;
+            text-align: center;
+        }
+
+        .contact-info {
+            background: #f4f4f4;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 6px solid #2980b9;
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            width: 100%;
+            background-color: #1c1c1c;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+    <script>
+        function toggleMenu() {
+            document.querySelector(".sidebar").classList.toggle("active");
+        }
+
+        document.addEventListener("click", function(event) {
+            let menu = document.querySelector(".sidebar");
+            let button = document.querySelector(".menu-btn");
+            if (!menu.contains(event.target) && !button.contains(event.target)) {
+                menu.classList.remove("active");
+            }
+        });
+    </script>
+</head>
+<body>
+    <!-- Üst Menü -->
+    <div class="topbar">
+        <button class="menu-btn" onclick="toggleMenu()">☰ Menü</button>
+        Countrypedia - İletişim
+    </div>
+    
+    <!-- Yan Menü -->
+    <div class="sidebar">
+        <h1>Menü</h1>
+        <ul>
+            <li><a href="index.html">Anasayfa</a></li>
+            <li><a href="ülkeler.html">Ülkeler</a></li>
+            <li><a href="gezilecek_yerler.html">Gezilecek Yerler</a></li>
+            <li><a href="kultur_ve_gelenekler.html">Kültür ve Gelenekler</a></li>
+            <li><a href="tarihi_gelismeler.html">Tarihi Gelişmeler</a></li>
+            <li><a href="iklim_ve_cografya.html">İklim ve Coğrafya</a></li>
+            <li><a href="iletisim.html">İletişim</a></li>
+            <li><a href="hakkımızda.html">Hakkımızda</a></li>
+        </ul>
+    </div>
+    
+    <!-- Sayfa İçeriği -->
+    <div class="content">
+        <h2>İletişim Bilgileri</h2>
+
+        <div class="contact-info">
+            <h3>Genel İletişim</h3>
+            <p>Email: info@countrypedia.com</p>
+            <p>Telefon: +90 123 456 7890</p>
+            <p>Adres: Countrypedia, Tarih Caddesi No: 10, İstanbul, Türkiye</p>
+        </div>
+
+        <div class="contact-info">
+            <h3>Destek</h3>
+            <p>Email: destek@countrypedia.com</p>
+            <p>Telefon: +90 987 654 3210</p>
+        </div>
+
+        <div class="contact-info">
+            <h3>Sosyal Medya</h3>
+            <p>Facebook: <a href="https://facebook.com/countrypedia" target="_blank">facebook.com/countrypedia</a></p>
+            <p>Twitter: <a href="https://twitter.com/countrypedia" target="_blank">twitter.com/countrypedia</a></p>
+            <p>Instagram: <a href="https://instagram.com/countrypedia" target="_blank">instagram.com/countrypedia</a></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Countrypedia. Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html>

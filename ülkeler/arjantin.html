@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arjantin - Countrypedia</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eef2f3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .topbar {
+            width: 100%;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .menu-btn {
+            position: absolute;
+            left: 20px;
+            top: 15px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #1c1c1c;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            left: -260px;
+            top: 60px;
+            transition: left 0.3s ease-in-out;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 30px;
+        }
+
+        .sidebar ul li {
+            padding: 10px;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+
+        .content {
+            margin-top: 100px;
+            width: 90%;
+            max-width: 900px;
+            text-align: left;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .flag {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.map-image {
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 30px auto;
+    image-rendering: auto; /* otomatik kalite ayarı */
+}
+
+        h2 {
+            color: #003366;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #0056b3;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .kultur-bolumu {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.kultur-kart {
+    background-color: #f9f9f9;
+    border-left: 5px solid #0056b3;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.kultur-kart p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.kultur-kart strong {
+    color: #0056b3;
+    font-size: 18px;
+}
+
+.kultur-kart img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-top: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+    </style>
+    <script>
+        function toggleMenu() {
+            document.querySelector(".sidebar").classList.toggle("active");
+        }
+
+        document.addEventListener("click", function(event) {
+            var sidebar = document.querySelector(".sidebar");
+            var menuBtn = document.querySelector(".menu-btn");
+            if (!sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
+                sidebar.classList.remove("active");
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="topbar">
+        <button class="menu-btn" onclick="toggleMenu()">☰ Menü</button>
+        Countrypedia - Arjantin
+    </div>
+
+    <div class="sidebar">
+        <h1>Menü</h1>
+        <ul>
+            <li><a href="../index.html">Anasayfa</a></li>
+            <li><a href="../ülkeler.html">Ülkeler</a></li>
+            <li><a href="../gezilecek_yerler.html">Gezilecek Yerler</a></li>
+            <li><a href="../kultur_ve_gelenekler.html">Kültür ve Gelenekler</a></li>
+            <li><a href="../tarihi_gelismeler.html">Tarihi Gelişmeler</a></li>
+            <li><a href="../iklim_ve_cografya.html">İklim ve Coğrafya</a></li>
+            <li><a href="../iletisim.html">İletişim</a></li>
+            <li><a href="../hakkımızda.html">Hakkımızda</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <img src="../resimler/Arjantin.png" alt="Arjantin Bayrağı" class="flag">
+        <h2>Arjantin</h2>
+        <p><strong>Başkent:</strong> Buenos Aires</p>
+        <p><strong>Yüzölçümü:</strong> 2.780.400 km²</p>
+        <p><strong>Nüfus:</strong> Yaklaşık 45 milyon</p>
+        <p><strong>Para Birimi:</strong> Arjantin Pesosu (ARS)</p>
+        <p>
+            Arjantin, Güney Amerika'nın güneyinde yer alan büyük bir ülkedir. Zengin kültürel mirası, etkileyici doğal güzellikleri ve dünyaca ünlü tango dansı ile tanınır. 
+            Dünyanın en büyük şarap üreticilerinden biri olup, geleneksel mutfağı ile de ünlüdür. Patagonya bölgesi ve Iguazu Şelaleleri gibi doğal harikaları keşfetmek için ziyaretçilere pek çok seçenek sunar.
+        </p>
+        <img src="../resimler/arjantin_haritası.png" alt="Arjantin Haritası" class="map-image">
+
+        <h3>İklim ve Coğrafya</h3>
+        <p><strong>İklim:</strong> Arjantin, farklı iklim tiplerine sahip büyük bir ülkedir. Kuzeyde tropikal iklim hakimken, güneyde soğuk ve karasal iklim görülür. Bu çeşitlilik, ülkenin her bölgesine özgü farklı bitki örtüsü ve hayvan çeşitliliği sağlar. Buenos Aires ve çevresi ılıman iklime sahiptir. Patagonya'da ise kışlar sert ve soğuk geçer.</p>
+        <p><strong>Coğrafya:</strong> Arjantin, güneydeki Patagonya'dan kuzeydeki tropikal bölgelere kadar uzanan geniş bir coğrafyaya sahiptir. Ülke, And Dağları'ndan Atlas Okyanusu'na kadar farklı doğal zenginliklere sahiptir. Arjantin'in en ünlü coğrafi özelliklerinden biri Iguazu Şelaleleri'dir. Ülke, çok sayıda göl, nehir ve dağ ile çeşitlenen doğal manzaralara sahiptir.</p>
+
+
+        <h3>Tarihi Gelişmeler</h3>
+        <p><strong>İspanyol Kolonisi (1516-1816):</strong> Arjantin, 16. yüzyılda İspanyol İmparatorluğu'nun sömürgesi haline gelmiştir. Buenos Aires, 1580'de kurularak bölgenin önemli bir ticaret merkezi haline gelmiştir.</p>
+
+        <p><strong>Bağımsızlık (1816):</strong> Arjantin, 9 Temmuz 1816'da Tucumán'da bağımsızlık ilan etmiştir. Bağımsızlık mücadelesi, Simon Bolívar ve José de San Martín gibi liderlerin öncülüğünde verilmiştir.</p>
+
+        <p><strong>İç Savaşlar (1816-1862):</strong> Bağımsızlık sonrası, Arjantin'de eyaletler arasında bir dizi iç savaş yaşanmış ve bu savaşlar 1862'de ülkenin birleşmesiyle sona ermiştir.</p>
+
+        <p><strong>20. Yüzyıl ve Ekonomik Krizler:</strong> 20. yüzyılda Arjantin, ekonomik dalgalanmalara, askeri darbeler ve diktatörlük yönetimlerine tanıklık etmiştir. 1980'lerdeki ekonomik kriz ve 2001 yılında yaşanan büyük ekonomik çöküş, ülkenin tarihindeki önemli dönüm noktalarındandır.</p>
+
+        <p><strong>Demokratikleşme (1983):</strong> Arjantin, 1983 yılında askeri diktatörlükten demokrasiye geçmiştir ve sonrasındaki yıllarda ekonomik istikrar sağlanmaya çalışılmıştır.</p>
+
+        <div class="kultur-bolumu">
+    <div class="kultur-kart">
+        <p><strong>Tango:</strong><br>Tango, Arjantin’in dünya çapında bilinen en önemli kültürel simgelerinden biridir. 19. yüzyılın sonlarında Buenos Aires'in kenar mahallelerinde doğan bu duygusal dans, zamanla tüm dünyada tanınmış ve UNESCO Somut Olmayan Kültürel Miras listesine dahil edilmiştir. Tango dansı, tutku ve zarafeti yansıtırken, tango müziği ise melankolik tınılarıyla dikkat çeker.</p>
+        <img src="../resimler/arjantin_tango.jpg" alt="Arjantin Tango">
+    </div>
+
+    <div class="kultur-kart">
+        <p><strong>Mate:</strong><br>Mate çayı, Arjantinlilerin sosyal yaşamında çok önemli bir yere sahiptir. Termosla sıcak su taşıyarak gün boyu tüketilen bu içecek, kalabalık ortamlarda elden ele dolaşır. Bu gelenek sadece bir içecek paylaşımı değil, aynı zamanda dostluğun ve samimiyetin göstergesidir.</p>
+        <img src="../resimler/arjantın_mate.jpg" alt="Arjantin Mate">
+    </div>
+
+    <div class="kultur-kart">
+        <p><strong>Asado:</strong><br>Asado, Arjantin'e özgü bir barbekü geleneğidir. Etin odun ateşinde yavaş yavaş pişirildiği bu etkinlik, genellikle hafta sonları aile bireylerini ve dostları bir araya getirir. Asado, yemek yemenin ötesinde sosyalleşme ve paylaşım anıdır.</p>
+        <img src="../resimler/arjantin_asado.jpg" alt="Arjantin Asado">
+    </div>
+</div>
+<div class="kultur-kart">
+    <img src="../resimler/İguazuşelaleleri.jpeg" alt="İguazu Şelaleleri">
+    <p><strong>İguazu Şelaleleri - Arjantin</strong></p>
+    <p class="info-text">
+      İguazu Şelaleleri, Arjantin ile Brezilya arasındaki sınırda yer alan, dünyanın en büyük ve en etkileyici şelalelerinden biridir. 
+      2.7 kilometre uzunluğundaki bu şelale zinciri, 275'ten fazla düşüşten oluşur ve her biri farklı büyüklükte ve güçtedir. 
+      İguazu, UNESCO Dünya Mirası Listesi'nde yer almakta olup, bölgedeki milli parklar, zengin flora ve faunasıyla doğa severler için bir cennettir.
+    </p>
+</div>
+<div class="kultur-kart">
+    <img src="../resimler/Labocamahallesi.jpeg" alt="La Boca Mahallesi">
+    <p><strong>La Boca Mahallesi - Arjantin</strong></p>
+    <p class="info-text">
+      La Boca Mahallesi, Arjantin'in başkenti Buenos Aires'te yer alan tarihi bir semttir ve renkli evleri, dar sokakları ve canlı atmosferi ile ünlüdür. 
+      Bu semt, Arjantin futbolunun kalbinin attığı yerlerden biridir, çünkü Boca Juniors futbol kulübü burada kurulmuştur. 
+      La Boca, sanat galerileri, sokak sanatçıları ve tango gösterileriyle de tanınır. Ziyaretçilerine hem kültürel hem de görsel bir şölen sunar.
+    </p>
+</div>
+<div class="kultur-kart">
+    <img src="../resimler/Peritomoreno.jpeg" alt="Perito Moreno Buzulu">
+    <p><strong>Perito Moreno Buzulu - Arjantin</strong></p>
+    <p class="info-text">
+      Perito Moreno Buzulu, Arjantin'in Patagonya bölgesinde yer alan, dünyanın en büyük buzullarından biridir. 
+      Bu buzul, her yıl birkaç metre ilerleyerek göle doğru hareket eder ve zaman zaman buzulun kırılma sesiyle büyük bir gösteri sergiler. 
+      UNESCO Dünya Mirası Listesi'nde yer alan Perito Moreno, doğa severler ve macera tutkunları için eşsiz bir gezi rotasıdır. 
+      Ayrıca, buzulun etrafındaki milli park, zengin hayvan ve bitki örtüsüyle dikkat çeker.
+    </p>
+</div>
+
+
+        <a href="../ülkeler.html" class="back-btn">← Geri Dön</a>
+    </div>
+</body>
+</html>

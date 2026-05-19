@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kültür ve Gelenekler</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #eef2f3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .topbar {
+      width: 100%;
+      background-color: #0056b3;
+      color: white;
+      padding: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      position: fixed;
+      top: 0;
+      text-align: center;
+      z-index: 1000;
+    }
+    .content {
+      margin-top: 100px;
+      width: 90%;
+      max-width: 1000px;
+    }
+    .country-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    .country-box {
+      background: #2980b9;
+      color: white;
+      padding: 12px 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      text-align: center;
+      min-width: 120px;
+      transition: 0.3s;
+    }
+    .country-box:hover {
+      background-color: #1e6091;
+    }
+    .info-box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .country-info {
+      display: none;
+    }
+    .country-info.active {
+      display: block;
+    }
+    .country-info img {
+      width: 60%;
+      margin: 10px 0 25px;
+      border-radius: 5px;
+    }
+    .country-info p {
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">Countrypedia - Kültür ve Gelenekler</div>
+
+  <div class="content">
+    <h2>Kültür ve Gelenekler</h2>
+
+    <!-- Ülke Butonları -->
+    <div class="country-grid">
+      <div class="country-box" onclick="showCultureInfo('Türkiye')">Türkiye</div>
+      <div class="country-box" onclick="showCultureInfo('Azerbaycan')">Azerbaycan</div>
+      <div class="country-box" onclick="showCultureInfo('İsviçre')">İsviçre</div>
+      <div class="country-box" onclick="showCultureInfo('Singapur')">Singapur</div>
+      <div class="country-box" onclick="showCultureInfo('Arjantin')">Arjantin</div>
+      <div class="country-box" onclick="showCultureInfo('Almanya')">Almanya</div>
+      <div class="country-box" onclick="showCultureInfo('Amerika')">Amerika</div>
+      <div class="country-box" onclick="showCultureInfo('İngiltere')">İngiltere</div>
+      <div class="country-box" onclick="showCultureInfo('İtalya')">İtalya</div>
+      <div class="country-box" onclick="showCultureInfo('Kanada')">Kanada</div>
+      <div class="country-box" onclick="showCultureInfo('Fransa')">Fransa</div>
+      <div class="country-box" onclick="showCultureInfo('İspanya')">İspanya</div>
+    </div>
+
+    <!-- Gelenek Bilgileri -->
+    <div class="info-box">
+      <!-- Her ülke bilgisi burada ayrı ayrı tutulur -->
+      <div id="Türkiye" class="country-info active">
+  <h3>Türkiye</h3>
+  <p><strong>Bayramlar:</strong><br>Türkiye'de milli bayramlar büyük bir coşku ile kutlanır. 29 Ekim Cumhuriyet Bayramı'nda resmi geçit törenleri, okullarda kutlamalar ve akşamları yapılan fener alayları öne çıkar. 23 Nisan Ulusal Egemenlik ve Çocuk Bayramı, dünyada çocuklara adanmış ilk bayram olarak kutlanırken; 19 Mayıs Atatürk’ü Anma, Gençlik ve Spor Bayramı da gençler için düzenlenen spor etkinlikleri ve gösterilerle kutlanır. Dini bayramlarda ise bayram namazı sonrası insanlar büyüklerini ziyaret eder, çocuklara harçlık ve şeker dağıtılır, sofralarda birlik ve paylaşım ön plana çıkar.</p>
+  <img src="resimler/turkiye_bayram.jpg" alt="Türkiye Bayram">
+  <p><strong>Düğünler:</strong><br>Türkiye'de düğünler genellikle birkaç gün süren etkinliklerdir. Kına gecesinde gelin, eline kına yakılarak geleneksel türküler eşliğinde uğurlanır. Düğün günü damat alayı ve gelin alma töreniyle başlar, düğün salonunda ya da açık havada devam eden eğlencede halaylar çekilir, çeşitli ikramlar sunulur. Bölgelere göre değişen adetlerle bu özel günler daha da renklidir.</p>
+  <img src="resimler/turkiye_dugun.jpg" alt="Türkiye Düğün">
+  <p><strong>Halk Dansları:</strong><br>Türkiye’nin dört bir yanında farklı halk dansları vardır. Ege Bölgesi'nde Zeybek, cesaret ve özgürlüğü simgelerken; Güneydoğu'da Halay, kalabalık gruplarla coşkulu bir şekilde icra edilir. Karadeniz Bölgesi'nin hızlı tempolu Horon'u, kemençe eşliğinde oynanır ve adeta bölgenin enerjisini yansıtır. Bu danslar, hem folklorik kimliği hem de toplumsal dayanışmayı temsil eder.</p>
+  <img src="resimler/turkiye_dans.jpg" alt="Türkiye Dans">
+</div>
+
+      <div id="Azerbaycan" class="country-info">
+  <h3>Azerbaycan</h3>
+  <p><strong>Bayramlar:</strong><br>Azerbaycan'da en önemli milli bayramlardan biri 28 Mayıs Cumhuriyet Günü’dür. Bu gün, 1918'de kurulan Azerbaycan Demokratik Cumhuriyeti'nin ilanını anmak için coşkuyla kutlanır. Ayrıca 18 Ekim Bağımsızlık Günü, halkın ulusal birlik ve özgürlük duygusunu pekiştirdiği bir diğer önemli tarihtir. Dini bayramlar arasında ise Nevruz öne çıkar; baharın gelişini simgeleyen bu bayramda halk, ateş üzerinden atlama, yumurta boyama ve çeşitli gösterilerle kutlamalar yapar.</p>
+  <img src="resimler/azerbaycan_nevruz.jpg">
+  <p><strong>Çay İkramı:</strong><br>Azerbaycan kültüründe çay, sadece bir içecek değil, aynı zamanda misafirperverliğin ve dostluğun bir göstergesidir. Gelen misafire ilk sunulan şey çaydır. Nane veya limonla servis edilen çay yanında genellikle reçel ikram edilir. Uzun sohbetlerin ayrılmaz bir parçasıdır.</p>
+  <img src="resimler/azerbaycan_cay.jpg">
+  <p><strong>Mugam:</strong><br>Mugam, Azerbaycan’a özgü geleneksel ve klasik müzik türlerinden biridir. Usta sanatçılar tarafından icra edilen mugamlar, hem şiirsel hem de doğaçlamaya açık yapılarıyla dikkat çeker. Saz, kamança ve tar gibi geleneksel enstrümanlarla seslendirilir ve kültürel kimliğin önemli bir parçasıdır.</p>
+  <img src="resimler/azerbaycan_mugam.jpg">
+</div>
+
+<div id="İsviçre" class="country-info">
+  <h3>İsviçre</h3>
+  <p><strong>Bayramlar:</strong><br>İsviçre’nin en önemli milli bayramı 1 Ağustos Ulusal Gündür. Bu günde ülkenin dört bir yanında havai fişek gösterileri, konuşmalar, geleneksel müzikler ve fener alayları düzenlenir. Ayrıca dini bayramlar da yöresel kutlamalarla öne çıkar; Katolik kantonlarında Noel ve Paskalya süslemeleri ve etkinlikleri dikkat çeker.</p>
+  <img src="resimler/isvicre_alp.jpg">
+  <p><strong>Peynir Fondü:</strong><br>İsviçre mutfağının en ikonik yemeklerinden biri olan fondü, eritilmiş peynirin ekmek parçalarına batırılarak yenmesiyle servis edilir. Özellikle kış aylarında ailelerin bir araya gelerek paylaştığı sıcak ve samimi bir gelenektir.</p>
+  <img src="resimler/isvicre_fondu.jpg">
+  <p><strong>Yodel:</strong><br>Alp dağları ile özdeşleşmiş olan yodel, inişli çıkışlı seslerle yapılan bir halk müziği tarzıdır. Özellikle kırsal bölgelerde hala icra edilir ve İsviçre kültürel mirasının önemli bir parçasıdır.</p>
+  <img src="resimler/isvicre_yodel.jpg">
+</div>
+
+<div id="Singapur" class="country-info">
+  <h3>Singapur</h3>
+  <p><strong>Bayramlar:</strong><br>Singapur'da 9 Ağustos Ulusal Gün, bağımsızlığın kazanıldığı gün olarak her yıl büyük bir askeri geçit, hava gösterileri ve havai fişeklerle kutlanır. Bunun dışında çok kültürlü yapısı sayesinde Çin Yeni Yılı, Deepavali, Hari Raya Aidilfitri ve Noel gibi farklı inançlara dayalı bayramlar da ülke genelinde resmi tatil olarak kabul edilir ve birlikte kutlanır.</p>
+  <img src="resimler/singapur_yil.jpg">
+  <p><strong>Hawker Yemekleri:</strong><br>Singapur sokak lezzetleri, farklı etnik grupların mutfaklarını yansıtan zengin bir çeşitliliğe sahiptir. Hawker merkezleri, uygun fiyatlı ve hızlı servis yapılan mekanlardır. Burada Hint, Çin, Malay ve Batı mutfağından örnekler sunulur.</p>
+  <img src="resimler/singapur_hawker.jpg">
+  <p><strong>Çok kültürlü festivaller:</strong><br>Singapur’da farklı dinlere ait festivaller birlikte yaşanır. Hindu topluluğu Deepavali'yi rengarenk süslemeler ve ışıklarla kutlarken; Müslümanlar Hari Raya’da camilere gider, geleneksel kıyafetler giyer. Çin Yeni Yılı ise danslar, kırmızı süslemeler ve aile yemekleriyle kutlanır.</p>
+  <img src="resimler/singapur_festival.jpg">
+</div>
+
+      <div id="Arjantin" class="country-info">
+  <h3>Arjantin</h3>
+  <p><strong>Tango:</strong><br>Tango, Arjantin’in dünya çapında bilinen en önemli kültürel simgelerinden biridir. 19. yüzyılın sonlarında Buenos Aires'in kenar mahallelerinde doğan bu duygusal dans, zamanla tüm dünyada tanınmış ve UNESCO Somut Olmayan Kültürel Miras listesine dahil edilmiştir. Tango dansı, tutku ve zarafeti yansıtırken, tango müziği ise melankolik tınılarıyla dikkat çeker.</p>
+  <img src="resimler/arjantin_tango.jpg">
+  <p><strong>Mate:</strong><br>Mate çayı, Arjantinlilerin sosyal yaşamında çok önemli bir yere sahiptir. Termosla sıcak su taşıyarak gün boyu tüketilen bu içecek, kalabalık ortamlarda elden ele dolaşır. Bu gelenek sadece bir içecek paylaşımı değil, aynı zamanda dostluğun ve samimiyetin göstergesidir.</p>
+  <img src="resimler/arjantın_mate.jpg">
+  <p><strong>Asado:</strong><br>Asado, Arjantin'e özgü bir barbekü geleneğidir. Etin odun ateşinde yavaş yavaş pişirildiği bu etkinlik, genellikle hafta sonları aile bireylerini ve dostları bir araya getirir. Asado, yemek yemenin ötesinde sosyalleşme ve paylaşım anıdır.</p>
+  <img src="resimler/arjantin_asado.jpg">
+</div>
+
+<div id="Almanya" class="country-info">
+  <h3>Almanya</h3>
+  <p><strong>Oktoberfest:</strong><br>Münih’te her yıl düzenlenen Oktoberfest, dünyanın en büyük bira festivalidir. Yöresel kıyafetler, devasa bira çadırları, geleneksel müzikler ve Alman mutfağından lezzetlerle süslenen bu etkinlik, Almanya'nın kültürel kimliğinin simgelerinden biridir.</p>
+  <img src="resimler/almanya_oktoberfest.jpg">
+  <p><strong>Noel Pazarları:</strong><br>Almanya’da Aralık ayı boyunca kurulan Noel pazarları, sıcak şarap, el yapımı süsler, oyuncaklar ve yerel yiyeceklerle doludur. Bu pazarlar, geleneksel Noel atmosferini yaşatır ve şehir meydanlarını ışıl ışıl süsler.</p>
+  <img src="resimler/almanya_noel.jpg">
+  <p><strong>Fırın Kültürü:</strong><br>Almanya’da fırın kültürü çok köklüdür. Ülke genelinde 300’den fazla farklı ekmek çeşidi bulunur. Sabahları fırından taze alınan ekmekle yapılan kahvaltılar Alman yaşamının önemli bir parçasıdır.</p>
+  <img src="resimler/almanya_ekmek.jpg">
+</div>
+
+<div id="Amerika" class="country-info">
+  <h3>Amerika</h3>
+  <p><strong>Thanksgiving:</strong><br>Şükran Günü, Kasım ayının dördüncü Perşembe günü kutlanır. Aile bireyleri bir araya gelir, fırında hindi, patates püresi ve balkabaklı turta gibi geleneksel yemekler hazırlanır. Bu günün amacı, geçmişteki bereket ve bolluk için şükretmektir.</p>
+  <img src="resimler/amerika_thanks.jpg">
+  <p><strong>Halloween:</strong><br>31 Ekim’de kutlanan Cadılar Bayramı, özellikle çocuklar için kostüm giyme, ev ev dolaşıp şeker toplama ve korku temalı süslemelerle unutulmaz bir etkinliktir. Evin dışına konan oyulmuş balkabakları bu geleneğin simgesidir.</p>
+  <img src="resimler/amerika_halloween.jpg">
+  <p><strong>4 Temmuz:</strong><br>Amerika'nın Bağımsızlık Günü olan 4 Temmuz, ülke genelinde havai fişekler, geçit törenleri, piknikler ve konserlerle kutlanır. Amerikan bayrakları ve kırmızı-beyaz-mavi renkler her yerdedir.</p>
+  <img src="resimler/amerika_4temmuz.jpg">
+</div>
+
+<div id="İngiltere" class="country-info">
+  <h3>İngiltere</h3>
+  <p><strong>Afternoon Tea:</strong><br>İngiliz kültürünün vazgeçilmezlerinden olan öğleden sonra çayı, genellikle hafif atıştırmalıklar, küçük sandviçler ve çöreklerle birlikte sunulur. Bu gelenek hem evlerde hem de özel çay salonlarında sürdürülmektedir.</p>
+  <img src="resimler/ingiltere_tea.jpg">
+  <p><strong>Pub Kültürü:</strong><br>İngiltere’de pub’lar sadece içki içilen yerler değil, aynı zamanda insanların sosyalleştiği ve günün stresini attığı mekanlardır. Hafta sonları maç izleme, quiz geceleri gibi etkinliklerle doludur.</p>
+  <img src="resimler/ingiltere_pub.jpg">
+  <p><strong>Kraliyet Törenleri:</strong><br>Buckingham Sarayı önünde gerçekleşen nöbetçi değişimi gibi törenler, turistlerin ilgiyle izlediği etkinliklerdendir. Kraliyet ailesine ait kutlamalar ve anma günleri büyük önem taşır.</p>
+  <img src="resimler/ingiltere_guard.jpg">
+</div>
+
+      <div id="İtalya" class="country-info">
+  <h3>İtalya</h3>
+  <p><strong>Pizza & Makarna:</strong><br>İtalya, dünyaca ünlü mutfağı ile tanınır. Pizza ve makarna, hem ülke içinde hem de dünya genelinde en çok sevilen yemeklerin başında gelir. Her bölgenin kendi tarifleri ve özel malzemeleri vardır. Napoli pizzası ve Bolonez makarna gibi örnekler, bu kültürün global yüzüdür.</p>
+  <img src="resimler/italya_yemek.jpg">
+  <p><strong>Opera:</strong><br>Opera sanatı, İtalya'nın tarihi boyunca sanata ve müziğe verdiği önemi gösterir. Verdi ve Puccini gibi büyük bestecilerin yetiştiği bu ülkede, operalar genellikle tarihi tiyatrolarda sahnelenir. Opera, dramatik anlatımı müzikle harmanlayan köklü bir gelenektir.</p>
+  <img src="resimler/italya_opera.jpg">
+  <p><strong>Siesta:</strong><br>İtalya'da öğle saatlerinde verilen kısa uyku molasına "siesta" denir. Bu gelenek, özellikle yaz aylarında sıcağın etkisini azaltmak ve öğleden sonra daha verimli olmak için uygulanır. Bazı küçük kasabalarda öğle saatlerinde dükkanların kapanması da bu kültürün bir parçasıdır.</p>
+  <img src="resimler/italya_siesta.jpg">
+</div>
+
+<div id="Kanada" class="country-info">
+  <h3>Kanada</h3>
+  <p><strong>Maple Şurubu:</strong><br>Kanada'nın simgelerinden biri olan akçaağaç şurubu, özellikle kahvaltılarda tercih edilir. Pancake ve waffle gibi yiyeceklerin vazgeçilmez eşlikçisidir. İlkbaharda ağaçlardan elde edilen özsu kaynatılarak şuruba dönüştürülür.</p>
+  <img src="resimler/kanada_maple.jpg">
+  <p><strong>Kış Sporları:</strong><br>Kanada, zengin kış sporları kültürüne sahiptir. Kayak, snowboard ve özellikle buz hokeyi, ülke genelinde oldukça popülerdir. Okullarda küçük yaşlardan itibaren buz sporları teşvik edilir ve ulusal ligler büyük ilgiyle takip edilir.</p>
+  <img src="resimler/kanada_kis.jpg">
+  <p><strong>First Nations Kültürü:</strong><br>Kanada’da yaşayan yerli topluluklar, zengin kültürel miraslarıyla ülke kimliğine büyük katkı sunar. Totem direkleri, geleneksel el sanatları, danslar ve doğayla uyumlu yaşam tarzı bu kültürün önemli unsurlarıdır.</p>
+  <img src="resimler/kanada_ilk.jpg">
+</div>
+
+<div id="Fransa" class="country-info">
+  <h3>Fransa</h3>
+  <p><strong>Şarap & Peynir:</strong><br>Fransa, gastronomi denince akla ilk gelen ülkelerden biridir. Yüzlerce çeşit peyniri ve bölgelere özgü şaraplarıyla, yemek kültüründe çeşitlilik ve kalite ön plandadır. Şarap ve peynir tadımı, hem sosyal hem de kültürel bir etkinlik olarak görülür.</p>
+  <img src="resimler/fransa_sarap.jpg">
+  <p><strong>Moda:</strong><br>Paris, dünya modasının kalbi kabul edilir. Haute couture’den sokak modasına kadar her düzeyde tasarımın ve stilin öncüsüdür. Paris Moda Haftası gibi etkinlikler, global moda takviminde önemli yer tutar.</p>
+  <img src="resimler/fransa_moda.jpg">
+  <p><strong>Kafeler:</strong><br>Fransa'da kafeler, sadece bir şeyler içilen mekanlar değil, aynı zamanda sosyalleşme ve gözlem yapma alanlarıdır. Özellikle Paris’te kaldırım üzerindeki küçük masalarda oturmak ve kahve eşliğinde kitap okumak ya da sohbet etmek kültürel bir alışkanlıktır.</p>
+  <img src="resimler/fransa_kafee.jpg">
+</div>
+
+<div id="İspanya" class="country-info">
+  <h3>İspanya</h3>
+  <p><strong>Flamenko:</strong><br>Flamenko, İspanya’nın özellikle Endülüs bölgesine özgü bir dans ve müzik türüdür. Gitar eşliğinde söylenen duygulu şarkılar ve tutkulu dans figürleriyle izleyicilere derin bir duygusal deneyim yaşatır. UNESCO tarafından kültürel miras olarak tanınmıştır.</p>
+  <img src="resimler/ispanya_flamenko.jpg">
+  <p><strong>San Fermin Festivali:</strong><br>Her yıl Temmuz ayında Pamplona’da düzenlenen bu festival, boğa koşuları ile ünlüdür. Katılımcılar dar sokaklarda serbest bırakılan boğaların önünde koşar. Etkinlik, Aziz Fermin’i anmak amacıyla düzenlenmektedir ve geleneksel kıyafetlerle yapılan geçitlerle de dikkat çeker.</p>
+  <img src="resimler/ispanya_sanfermin.jpg">
+  <p><strong>Tapas:</strong><br>Tapas, İspanya’ya özgü küçük porsiyonlu yemeklerdir. Arkadaş ortamlarında paylaşılarak tüketilir ve sosyal yeme alışkanlıklarının temelini oluşturur. Deniz ürünlerinden sebzelere kadar çok çeşitli içeriklerle hazırlanabilir.</p>
+  <img src="resimler/ispanya_tapas.jpg">
+</div>
+
+  <script>
+    function showCultureInfo(countryId) {
+      document.querySelectorAll('.country-info').forEach(el => el.classList.remove('active'));
+      const selected = document.getElementById(countryId);
+      if (selected) selected.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>

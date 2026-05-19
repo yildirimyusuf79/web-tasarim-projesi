@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Almanya - Countrypedia</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eef2f3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .topbar {
+            width: 100%;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .menu-btn {
+            position: absolute;
+            left: 20px;
+            top: 15px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #1c1c1c;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            left: -260px;
+            top: 60px;
+            transition: left 0.3s ease-in-out;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 30px;
+        }
+
+        .sidebar ul li {
+            padding: 10px;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+
+        .content {
+            margin-top: 100px;
+            width: 90%;
+            max-width: 900px;
+            text-align: left;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .flag {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.map-image {
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 30px auto;
+    image-rendering: auto; /* otomatik kalite ayarı */
+}
+
+        h2 {
+            color: #003366;
+        }
+
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #0056b3;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .kultur-bolumu {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.kultur-kart {
+    background-color: #f9f9f9;
+    border-left: 5px solid #0056b3;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.kultur-kart p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.kultur-kart strong {
+    color: #0056b3;
+    font-size: 18px;
+}
+
+.kultur-kart img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-top: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+    </style>
+    <script>
+        function toggleMenu() {
+            document.querySelector(".sidebar").classList.toggle("active");
+        }
+
+        document.addEventListener("click", function(event) {
+            var sidebar = document.querySelector(".sidebar");
+            var menuBtn = document.querySelector(".menu-btn");
+            if (!sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
+                sidebar.classList.remove("active");
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="topbar">
+        <button class="menu-btn" onclick="toggleMenu()">☰ Menü</button>
+        Countrypedia - Almanya
+    </div>
+
+    <div class="sidebar">
+        <h1>Menü</h1>
+        <ul>
+            <li><a href="../index.html">Anasayfa</a></li>
+            <li><a href="../ülkeler.html">Ülkeler</a></li>
+            <li><a href="../gezilecek_yerler.html">Gezilecek Yerler</a></li>
+            <li><a href="../kultur_ve_gelenekler.html">Kültür ve Gelenekler</a></li>
+            <li><a href="../tarihi_gelismeler.html">Tarihi Gelişmeler</a></li>
+            <li><a href="../iklim_ve_cografya.html">İklim ve Coğrafya</a></li>
+            <li><a href="../iletisim.html">İletişim</a></li>
+            <li><a href="../hakkımızda.html">Hakkımızda</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <img src="../resimler/Almanya.png" alt="Almanya Bayrağı" class="flag">
+        <h2>Almanya</h2>
+        <p><strong>Başkent:</strong> Berlin</p>
+        <p><strong>Yüzölçümü:</strong> 357.022 km²</p>
+        <p><strong>Nüfus:</strong> Yaklaşık 83 milyon</p>
+        <p><strong>Para Birimi:</strong> Euro (EUR)</p>
+        <p>
+            Almanya, Avrupa'nın kalbinde yer alan güçlü bir ekonomik ve kültürel merkezdir. Dünya çapında güçlü bir sanayiye, mühendislik ve teknoloji alanındaki yeniliklere sahip olan Almanya, aynı zamanda tarihsel ve kültürel mirasıyla ünlüdür.
+            Berlin, Almanya'nın başkenti olup, modern sanat galerileri, tarihi anıtlar ve dinamik gece hayatı ile tanınır. Ülkede, geleneksel Alman yemeklerinin yanı sıra, Oktoberfest gibi uluslararası ünlü festivaller de düzenlenmektedir.
+        </p>
+        <img src="../resimler/almanya_haritası.png" alt="Arjantin Haritası" class="map-image">
+
+        <h3>İklim ve Coğrafya</h3>
+        <p><strong>İklim:</strong> Almanya'nın iklimi, büyük ölçüde ılıman okyanus iklimi etkisi altındadır. Ülke, genellikle nemli ve ılımandır, ancak yerel farklar gösterir. Kuzeydeki bölgelerde kışlar daha soğuk ve yağışlı geçerken, yaz aylarında sıcaklık genellikle 20°C civarlarında olur. Güneyde ise, Almanya'nın Alpler'e yakın bölgelerinde daha soğuk kışlar ve sıcak yazlar görülebilir.</p>
+        <p><strong>Coğrafya:</strong> Almanya, Orta Avrupa'da yer alır ve farklı coğrafi özelliklere sahiptir. Kuzeyde denize kıyısı bulunan Almanya'nın bu bölgesi, daha düz arazilerle kaplıdır. Almanya'nın güneyindeki Alpler, ülkenin en yüksek noktalarını oluşturur ve dağlık bir yapıya sahiptir. Ülkede çok sayıda nehir ve göl bulunmaktadır. Özellikle Ren Nehri, Almanya'nın en uzun nehri olup, ticaret açısından büyük bir öneme sahiptir.</p>
+        
+        <h3>Tarihi Gelişmeler</h3>
+        <p>
+        Almanya'nın tarihi, Avrupa'nın kaderini şekillendiren pek çok önemli olayla doludur. 
+        Orta Çağ'da Kutsal Roma Cermen İmparatorluğu'nun merkezi konumundaydı. 19. yüzyılda Otto von Bismarck’ın liderliğinde Almanya birliğini sağladı ve modern Almanya'nın temelleri atıldı.
+        </p>
+        <p>
+        20. yüzyılda Almanya, iki dünya savaşında da merkezi bir rol oynadı. I. Dünya Savaşı'nın ardından Weimar Cumhuriyeti kuruldu, fakat ekonomik zorluklar ve siyasi istikrarsızlık, Nazi rejiminin yükselmesine zemin hazırladı. II. Dünya Savaşı'ndan sonra Almanya, Doğu ve Batı olarak ikiye ayrıldı. 
+        </p>
+        <p>
+        1990 yılında Berlin Duvarı'nın yıkılması ile Almanya yeniden birleşti. Bugün Almanya, Avrupa Birliği'nin kurucu üyelerinden biri olarak güçlü bir demokrasi ve ekonomik güç haline gelmiştir.
+        </p>
+
+        <div class="kultur-bolumu">
+    <div class="kultur-kart">
+        <p><strong>Oktoberfest:</strong><br>Münih’te her yıl düzenlenen Oktoberfest, dünyanın en büyük bira festivalidir. Yöresel kıyafetler, devasa bira çadırları, geleneksel müzikler ve Alman mutfağından lezzetlerle süslenen bu etkinlik, Almanya'nın kültürel kimliğinin simgelerinden biridir.</p>
+        <img src="../resimler/almanya_oktoberfest.jpg" alt="Almanya Oktoberfest">
+    </div>
+
+    <div class="kultur-kart">
+        <p><strong>Noel Pazarları:</strong><br>Almanya’da Aralık ayı boyunca kurulan Noel pazarları, sıcak şarap, el yapımı süsler, oyuncaklar ve yerel yiyeceklerle doludur. Bu pazarlar, geleneksel Noel atmosferini yaşatır ve şehir meydanlarını ışıl ışıl süsler.</p>
+        <img src="../resimler/almanya_noel.jpg" alt="Almanya Noel Pazarları">
+    </div>
+
+    <div class="kultur-kart">
+        <p><strong>Fırın Kültürü:</strong><br>Almanya’da fırın kültürü çok köklüdür. Ülke genelinde 300’den fazla farklı ekmek çeşidi bulunur. Sabahları fırından taze alınan ekmekle yapılan kahvaltılar Alman yaşamının önemli bir parçasıdır.</p>
+        <img src="../resimler/almanya_ekmek.jpg" alt="Almanya Fırın Kültürü">
+    </div>
+
+</div>
+<div class="kultur-kart">
+    <img src="../resimler/Kölnkatedrali.jpeg" alt="Köln Katedrali">
+    <p><strong>Köln Katedrali - Almanya</strong></p>
+    <p class="info-text">
+      Almanya'nın en büyük katedrali olan Köln Katedrali, Gotik mimarinin muazzam bir örneğidir. 
+      1248 yılında inşasına başlanan katedral, 1880 yılında tamamlanmıştır. 
+      UNESCO Dünya Mirası Listesi'nde yer alan bu yapı, şehre gelen turistler için önemli bir cazibe merkezidir.
+    </p>
+</div>
+<div class="kultur-kart">
+    <img src="../resimler/Berlinduvarı.jpeg" alt="Berlin Duvarı">
+    <p><strong>Berlin Duvarı - Almanya</strong></p>
+    <p class="info-text">
+      Berlin Duvarı, 1961 ile 1989 yılları arasında Almanya'nın başkenti Berlin'i ikiye bölen tarihi bir yapıdır. 
+      Soğuk Savaş dönemi boyunca Doğu Almanya ile Batı Almanya arasında bir sınır işlevi görmüştür. 
+      Günümüzde duvarın kalan parçaları, dünya çapında özgürlük ve birleşmenin sembollerinden biri olarak kabul edilir.
+    </p>
+</div>
+<div class="kultur-kart">
+    <img src="../resimler/NeuschwansteinŞatosu.jpeg" alt="Neuschwanstein Şatosu">
+    <p><strong>Neuschwanstein Şatosu - Almanya</strong></p>
+    <p class="info-text">
+      Almanya'nın Bavyera bölgesinde yer alan Neuschwanstein Şatosu, masal gibi mimarisiyle ünlüdür. 
+      19. yüzyılda Bavyera Kralı II. Ludwig tarafından inşa ettirilen şato, Walt Disney'in "Uyuyan Güzel" masalındaki şatoya ilham kaynağı olmuştur. 
+      Dağların zirvesine inşa edilmiş olan bu şato, Almanya'nın en çok ziyaret edilen turistik yerlerinden biridir.
+    </p>
+</div>
+
+
+        <a href="../ülkeler.html" class="back-btn">← Geri Dön</a>
+    </div>
+</body>
+</html>

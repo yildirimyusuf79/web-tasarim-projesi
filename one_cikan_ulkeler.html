@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Öne Çıkan Ülkeler - Countrypedia</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eef2f3;
+            display: flex;
+        }
+        .topbar {
+            width: 100%;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .menu-btn {
+            position: absolute;
+            left: 20px;
+            top: 15px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #1c1c1c;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            left: -260px;
+            top: 60px;
+            transition: left 0.3s ease-in-out;
+        }
+        .sidebar.active {
+            left: 0;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 30px;
+        }
+        .sidebar ul li {
+            padding: 10px;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+        .content {
+            margin-top: 100px;
+            margin-left: 270px;
+            width: 90%;
+            max-width: 1200px;
+            text-align: center;
+        }
+        .featured-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .featured-card {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 220px;
+            text-align: center;
+        }
+        .featured-card img {
+            width: 100px;
+            height: 60px;
+            border-radius: 5px;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #0056b3;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        function toggleMenu() {
+            document.querySelector(".sidebar").classList.toggle("active");
+        }
+        document.addEventListener("click", function(event) {
+            var sidebar = document.querySelector(".sidebar");
+            var menuBtn = document.querySelector(".menu-btn");
+            if (!sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
+                sidebar.classList.remove("active");
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="topbar">
+        <button class="menu-btn" onclick="toggleMenu()">☰ Menü</button>
+        Countrypedia - Öne Çıkan Ülkeler
+    </div>
+    
+    <div class="sidebar">
+        <h2>Menü</h2>
+        <ul>
+            <li><a href="ülkeler.html">Ülkeler</a></li>
+            <li><a href="one_cikan_ulkeler.html">Öne Çıkan Ülkeler</a></li>
+            <li><a href="gezilecek_yerler.html">Gezilecek Yerler</a></li>
+            <li><a href="kultur_ve_gelenekler.html">Kültür ve Gelenekler</a></li>
+            <li><a href="tarihi_gelismeler.html">Tarihi Gelişmeler</a></li>
+            <li><a href="iklim_ve_cografya.html">İklim ve Coğrafya</a></li>
+            <li><a href="iletisim.html">İletişim</a></li>
+            <li><a href="hakkımızda.html">Hakkımızda</a></li>
+        </ul>
+    </div>
+    
+    <div class="content">
+        <h2>Öne Çıkan Ülkeler</h2>
+        <div class="featured-list">
+            <div class="featured-card">
+                <img src="resimler/Amerika.png" alt="ABD Bayrağı">
+                <p>Amerika Birleşik Devletleri</p>
+            </div>
+            <div class="featured-card">
+                <img src="resimler/İngiltere.png" alt="İngiltere Bayrağı">
+                <p>Birleşik Krallık</p>
+            </div>
+            <div class="featured-card">
+                <img src="resimler/Almanya.png" alt="Almanya Bayrağı">
+                <p>Almanya</p>
+            </div>
+            <div class="featured-card">
+                <img src="resimler/İtalya.png" alt="İtalya Bayrağı">
+                <p>İtalya</p>
+            </div>
+        </div>
+        <a href="index.html" class="back-btn">Geri Dön</a>
+    </div>
+</body>
+</html>

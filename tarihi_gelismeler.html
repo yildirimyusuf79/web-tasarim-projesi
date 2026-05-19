@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarihi Gelişmeler</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #eef2f3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh; /* Sayfa boyutunu tam olarak doldurur */
+    }
+    .topbar {
+        width: 100%;
+        background-color: #0056b3;
+        color: white;
+        padding: 20px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .menu-btn {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+        position: absolute;
+        left: 20px;
+        top: 25px;
+    }
+    .sidebar {
+        width: 250px;
+        background-color: #1c1c1c;
+        color: white;
+        padding: 20px;
+        height: 100vh;
+        position: fixed;
+        left: -260px;
+        top: 60px;
+        transition: left 0.3s ease-in-out;
+    }
+    .sidebar.active {
+        left: 0;
+    }
+    .sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 30px;
+    }
+    .sidebar ul li {
+        padding: 10px;
+    }
+    .sidebar ul li a {
+        color: white;
+        text-decoration: none;
+        display: block;
+    }
+    .content {
+        margin-top: 130px;
+        width: 90%;
+        max-width: 1200px;
+        text-align: center;
+        flex: 1; /* İçeriği aşağıya itmek için */
+    }
+    .search-box {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    .search-box input {
+        width: 60%;
+        padding: 10px;
+        font-size: 16px;
+        border: 2px solid #2980b9;
+        border-radius: 5px;
+    }
+    .event {
+        background: #f4f4f4;
+        padding: 15px;
+        margin: 15px 0;
+        border-left: 6px solid #2980b9;
+        border-radius: 10px;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    .event:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    h3 {
+        color: #2c3e50;
+        margin-bottom: 5px;
+    }
+    p {
+        color: #555;
+    }
+    
+</style>
+
+
+    <script>
+        function toggleMenu() {
+            document.querySelector(".sidebar").classList.toggle("active");
+        }
+        
+        document.addEventListener("click", function(event) {
+            let menu = document.querySelector(".sidebar");
+            let button = document.querySelector(".menu-btn");
+            if (!menu.contains(event.target) && !button.contains(event.target)) {
+                menu.classList.remove("active");
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="topbar">
+        <button class="menu-btn" onclick="toggleMenu()">☰ Menü</button>
+        Countrypedia - Tarihi Gelişmeler
+    </div>
+    
+    <div class="sidebar">
+        <h2>Menü</h2>
+        <ul>
+            <li><a href="index.html">Anasayfa</a></li>
+            <li><a href="ülkeler.html">Ülkeler</a></li>
+            <li><a href="gezilecek_yerler.html">Gezilecek Yerler</a></li>
+            <li><a href="kultur_ve_gelenekler.html">Kültür ve Gelenekler</a></li>
+            <li><a href="tarihi_gelismeler.html">Tarihi Gelişmeler</a></li>
+            <li><a href="iklim_ve_cografya.html">İklim ve Coğrafya</a></li>
+            <li><a href="iletisim.html">İletişim</a></li>
+            <li><a href="hakkımızda.html">Hakkımızda</a></li>
+        </ul>
+    </div>
+    
+    <div class="content">
+        <h2>Tarihi Gelişmeler</h2>
+
+        <!-- Arama Kutusu -->
+        <div class="search-box">
+            <input type="text" id="searchInput" onkeyup="filterEvents()" placeholder="Ülke veya olay türüne göre ara...">
+        </div>
+
+        <!-- Tarihi Olaylar -->
+        <div id="eventsContainer">
+            <div class="events">
+                <!-- 1291 - İsviçre Konfederasyonu'nun Kuruluşu -->
+                <div class="event" data-country="İsviçre" data-type="Bağımsızlık">
+                    <h3>1291 - İsviçre Konfederasyonu'nun Kuruluşu</h3>
+                    <p>İsviçre, farklı kantonların birleşmesiyle bir konfederasyon kurdu ve bağımsızlık yolunda önemli bir adım attı.</p>
+                </div>
+            
+                <!-- 1492 - Kolomb'un Amerika'ya Ulaşması -->
+                <div class="event" data-country="İspanya" data-type="Fetih">
+                    <h3>1492 - Kolomb'un Amerika'ya Ulaşması</h3>
+                    <p>Kristof Kolomb'un yeni kıtayı keşfetmesiyle İspanya'nın sömürge dönemi başladı.</p>
+                </div>
+            
+                <!-- 1688 - Glorious Revolution (İhtilal) -->
+                <div class="event" data-country="İngiltere" data-type="Devrim">
+                    <h3>1688 - Glorious Revolution (İhtilal)</h3>
+                    <p>İngiltere'de James II'nin tahttan indirilmesiyle Glorious Revolution gerçekleşti.</p>
+                </div>
+            
+                <!-- 1776 - Amerikan Bağımsızlık Bildirgesi -->
+                <div class="event" data-country="Amerika" data-type="Bağımsızlık">
+                    <h3>1776 - Amerikan Bağımsızlık Bildirgesi</h3>
+                    <p>Amerika Birleşik Devletleri, İngiltere'den bağımsızlığını ilan etti.</p>
+                </div>
+            
+                <!-- 1816 - Arjantin'in Bağımsızlık İlanı -->
+                <div class="event" data-country="Arjantin" data-type="Bağımsızlık">
+                    <h3>1816 - Arjantin'in Bağımsızlık İlanı</h3>
+                    <p>Arjantin, İspanya'dan bağımsızlığını ilan etti.</p>
+                </div>
+            
+                <!-- 1815 - İsviçre'nin Tarafsızlık Statüsü -->
+                <div class="event" data-country="İsviçre" data-type="Tarafsızlık">
+                    <h3>1815 - İsviçre'nin Tarafsızlık Statüsü</h3>
+                    <p>Viyana Kongresi'nde İsviçre'nin tarafsızlık durumu uluslararası alanda kabul edildi.</p>
+                </div>
+            
+                <!-- 1918 - Azerbaycan Demokratik Cumhuriyeti'nin Kuruluşu -->
+                <div class="event" data-country="Azerbaycan" data-type="Bağımsızlık">
+                    <h3>1918 - Azerbaycan Demokratik Cumhuriyeti'nin Kuruluşu</h3>
+                    <p>Azerbaycan, Rusya'dan bağımsızlığını ilan etti ve kısa süreliğine bağımsız bir devlet kurdu.</p>
+                </div>
+            
+                <!-- 1919-1922 - Kurtuluş Savaşı -->
+                <div class="event" data-country="Türkiye" data-type="Savaş">
+                    <h3>1919-1922 - Kurtuluş Savaşı</h3>
+                    <p>Türk halkı, işgalci kuvvetlere karşı bağımsızlık mücadelesi verdi.</p>
+                </div>
+            
+                <!-- 1923 - Türkiye Cumhuriyeti'nin Kuruluşu -->
+                <div class="event" data-country="Türkiye" data-type="Cumhuriyet Kuruluşu">
+                    <h3>1923 - Türkiye Cumhuriyeti'nin Kuruluşu</h3>
+                    <p>Mustafa Kemal Atatürk önderliğinde Türkiye Cumhuriyeti kuruldu.</p>
+                </div>
+            
+                <!-- 1923 - Lozan Antlaşması -->
+                <div class="event" data-country="Türkiye" data-type="Anlaşma">
+                    <h3>1923 - Lozan Antlaşması</h3>
+                    <p>Lozan Antlaşması ile Türkiye'nin sınırları belirlendi ve uluslararası alanda bağımsızlığı tanındı.</p>
+                </div>
+            
+                <!-- 1939 - II. Dünya Savaşı Başlangıcı -->
+                <div class="event" data-country="Almanya" data-type="Savaş">
+                    <h3>1939 - II. Dünya Savaşı Başlangıcı</h3>
+                    <p>Almanya'nın Polonya'yı işgal etmesiyle II. Dünya Savaşı başladı.</p>
+                </div>
+            
+                <!-- 1941 - Pearl Harbor Saldırısı -->
+                <div class="event" data-country="Amerika" data-type="Savaş">
+                    <h3>1941 - Pearl Harbor Saldırısı</h3>
+                    <p>Japonya'nın Pearl Harbor'a saldırısı, ABD'nin II. Dünya Savaşı'na girmesine yol açtı.</p>
+                </div>
+            
+                <!-- 1949 - Almanya'nın İkiye Bölünmesi -->
+                <div class="event" data-country="Almanya" data-type="Bölünme">
+                    <h3>1949 - Almanya'nın İkiye Bölünmesi</h3>
+                    <p>Almanya, Sovyetler Birliği'nin etkisinde kalan Doğu Almanya ve Batı Almanya olarak ikiye bölündü.</p>
+                </div>
+            
+                <!-- 1965 - Singapur'un Bağımsızlık İlanı -->
+                <div class="event" data-country="Singapur" data-type="Bağımsızlık">
+                    <h3>1965 - Singapur'un Bağımsızlık İlanı</h3>
+                    <p>Singapur, Malezya'dan ayrılarak bağımsız bir devlet oldu.</p>
+                </div>
+            
+                <!-- 1982 - Falkland Adaları Savaşı -->
+                <div class="event" data-country="Arjantin" data-type="Savaş">
+                    <h3>1982 - Falkland Adaları Savaşı</h3>
+                    <p>Arjantin ve Birleşik Krallık arasında Falkland Adaları'na sahip olma konusunda savaş başladı.</p>
+                </div>
+            
+                <!-- 1980'ler - Singapur'un Ekonomik Yükselişi -->
+                <div class="event" data-country="Singapur" data-type="Gelişme">
+                    <h3>1980'ler - Singapur'un Ekonomik Yükselişi</h3>
+                    <p>Singapur, hızlı sanayileşme ve ticaretle dünya ekonomisinde önemli bir rol oynamaya başladı.</p>
+                </div>
+            
+                <!-- 1990 - Almanya'nın Yeniden Birleşmesi -->
+                <div class="event" data-country="Almanya" data-type="Birleşme">
+                    <h3>1990 - Almanya'nın Yeniden Birleşmesi</h3>
+                    <p>Doğu ve Batı Almanya birleşerek tek bir ülke haline geldi.</p>
+                </div>
+            
+                <!-- 1991 - Azerbaycan'ın Bağımsızlığını İlan Etmesi -->
+                <div class="event" data-country="Azerbaycan" data-type="Bağımsızlık">
+                    <h3>1991 - Azerbaycan'ın Bağımsızlığını İlan Etmesi</h3>
+                    <p>Sovyetler Birliği'nin çöküşü ile Azerbaycan, yeniden bağımsızlığını ilan etti.</p>
+                </div>
+            
+                <!-- 1992 - Kanada'nın Anayasası -->
+                <div class="event" data-country="Kanada" data-type="Bağımsızlık">
+                    <h3>1992 - Kanada'nın Anayasası</h3>
+                    <p>Kanada, tamamen bağımsız olarak kendi anayasasını kabul etti.</p>
+                </div>
+            
+                <!-- 2003 - İtalya'nın Savaş Kararına Katılması -->
+                <div class="event" data-country="İtalya" data-type="Savaş">
+                    <h3>2003 - İtalya'nın Savaş Kararına Katılması</h3>
+                    <p>İtalya, Amerika'nın Irak'a müdahalesine destek verdi.</p>
+                </div>
+            </div>
+            
+            
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Countrypedia. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <script>
+        function filterEvents() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let events = document.querySelectorAll('.event');
+
+            events.forEach(event => {
+                let country = event.getAttribute('data-country').toLowerCase();
+                let type = event.getAttribute('data-type').toLowerCase();
+
+                if (country.includes(input) || type.includes(input)) {
+                    event.style.display = "block";
+                } else {
+                    event.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>
+</html>

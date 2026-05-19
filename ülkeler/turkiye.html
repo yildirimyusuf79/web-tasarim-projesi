@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Türkiye - Countrypedia</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eef2f3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .topbar {
+            width: 100%;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .menu-btn {
+            position: absolute;
+            left: 20px;
+            top: 15px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #1c1c1c;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            left: -260px;
+            top: 60px;
+            transition: left 0.3s ease-in-out;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 30px;
+        }
+
+        .sidebar ul li {
+            padding: 10px;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+
+        .content {
+            margin-top: 100px;
+            width: 90%;
+            max-width: 900px;
+            text-align: left;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .flag {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.map-image {
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 30px auto;
+    image-rendering: auto; /* otomatik kalite ayarı */
+}
+
+
+
+        h2 {
+            color: #003366;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #0056b3;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .kultur-bolumu {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.kultur-kart {
+    background-color: #f9f9f9;
+    border-left: 5px solid #0056b3;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.kultur-kart p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.kultur-kart strong {
+    color: #0056b3;
+    font-size: 18px;
+}
+
+.kultur-kart img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-top: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+    </style>
+    <script>
+        function toggleMenu() {
+            document.querySelector(".sidebar").classList.toggle("active");
+        }
+
+        document.addEventListener("click", function(event) {
+            var sidebar = document.querySelector(".sidebar");
+            var menuBtn = document.querySelector(".menu-btn");
+            if (!sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
+                sidebar.classList.remove("active");
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="topbar">
+        <button class="menu-btn" onclick="toggleMenu()">☰ Menü</button>
+        Countrypedia - Türkiye
+    </div>
+
+    <div class="sidebar">
+        <h1>Menü</h1>
+        <ul>
+            <li><a href="../index.html">Anasayfa</a></li>
+            <li><a href="../ülkeler.html">Ülkeler</a></li>
+            <li><a href="../gezilecek_yerler.html">Gezilecek Yerler</a></li>
+            <li><a href="../kultur_ve_gelenekler.html">Kültür ve Gelenekler</a></li>
+            <li><a href="../tarihi_gelismeler.html">Tarihi Gelişmeler</a></li>
+            <li><a href="../iklim_ve_cografya.html">İklim ve Coğrafya</a></li>
+            <li><a href="../iletisim.html">İletişim</a></li>
+            <li><a href="../hakkımızda.html">Hakkımızda</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <img src="../resimler/Türkiye.png" alt="Türkiye Bayrağı" class="flag">
+        <h2>Türkiye</h2>
+        <p><strong>Başkent:</strong> Ankara</p>
+        <p><strong>Yüzölçümü:</strong> 783.562 km²</p>
+        <p><strong>Nüfus:</strong> 84 milyon</p>
+        <p><strong>Para Birimi:</strong> Türk Lirası (TRY)</p>
+        <p>
+            Türkiye, hem Asya hem de Avrupa kıtalarında yer alan stratejik bir konuma sahip bir ülkedir. Zengin tarihi,
+            kültürel çeşitliliği ve doğal güzellikleriyle dikkat çeker. İstanbul gibi metropollerin yanı sıra Kapadokya,
+            Pamukkale, Efes gibi tarihi ve turistik yerler Türkiye'nin cazibesini artırır.
+        </p>
+
+        <h3>İklim ve Coğrafya</h3>
+        <p>
+            Türkiye, coğrafi olarak farklı iklim tiplerine sahip bir ülkedir. Ülkenin batısında Akdeniz iklimi, doğusunda ise
+            kara iklimi hakimdir. Ayrıca, Türkiye'nin güney kıyıları subtropikal iklim özellikleri gösterirken, iç kesimlerde
+            karasal iklimin etkisi görülür. Türkiye'nin dağlık yapısı, iklim çeşitliliğinin artmasına sebep olmuştur.
+        </p>
+        <p>
+            Türkiye, Batı Asya'da, Anadolu Yarımadası üzerinde yer alırken, aynı zamanda Avrupa ile sınırı olan tek Asya ülkesidir.
+            Ülkenin kuzeyinde Karadeniz, güneyinde Akdeniz, batısında ise Ege Denizi bulunur. Bu coğrafi konum, Türkiye'yi stratejik
+            olarak önemli kılmaktadır.
+        </p>
+        <h3>Türkiye Haritası</h3>
+        <img src="../resimler/Turkiye_haritası.jpg" alt="Türkiye Haritası" class="map-image">
+
+        <h3>Tarihi Gelişmeler</h3>
+        <p>
+    Türkiye'nin tarihi, binlerce yıl öncesine dayanan zengin bir geçmişe sahiptir. Anadolu toprakları, Hititler, Frigler,
+    Urartular, Lidyalılar ve birçok antik medeniyete ev sahipliği yapmıştır. Ayrıca Roma ve Bizans İmparatorluğu dönemlerinde de
+    önemli bir merkez olmuştur.
+        </p>
+        <p>
+    1071 Malazgirt Meydan Muharebesi sonrası Selçuklu Türkleri Anadolu'ya yerleşmeye başlamıştır. 1299 yılında Osmanlı Devleti kurulmuş
+    ve 600 yıl boyunca üç kıtada hüküm sürerek büyük bir imparatorluk haline gelmiştir. İstanbul'un 1453'te fethedilmesi, Orta Çağ'ın
+    sona erip Yeni Çağ'ın başlamasına neden olan önemli bir olaydır.
+        </p>
+        <p>
+    Osmanlı Devleti'nin I. Dünya Savaşı'ndan yenik çıkmasının ardından, 1919 yılında Kurtuluş Savaşı başlatılmış ve 1923 yılında
+    Mustafa Kemal Atatürk önderliğinde Türkiye Cumhuriyeti ilan edilmiştir. Cumhuriyetin ilanıyla birlikte birçok alanda inkılaplar
+    gerçekleştirilmiş, modern ve laik bir devlet yapısı kurulmuştur.
+        </p>
+        <p>
+    20. yüzyıl boyunca Türkiye, çok partili hayata geçiş, ekonomik kalkınma ve demokratikleşme süreçlerinden geçmiştir. Günümüzde ise
+    Türkiye, hem bölgesel hem de küresel düzeyde etkin bir rol oynamaya devam eden önemli bir ülkedir.
+        </p>
+        <div class="kultur-bolumu">
+    <div class="kultur-kart">
+        <p><strong>Bayramlar:</strong><br>Türkiye'de milli bayramlar büyük bir coşku ile kutlanır. 29 Ekim Cumhuriyet Bayramı'nda resmi geçit törenleri, okullarda kutlamalar ve akşamları yapılan fener alayları öne çıkar. 23 Nisan Ulusal Egemenlik ve Çocuk Bayramı, dünyada çocuklara adanmış ilk bayram olarak kutlanırken; 19 Mayıs Atatürk’ü Anma, Gençlik ve Spor Bayramı da gençler için düzenlenen spor etkinlikleri ve gösterilerle kutlanır. Dini bayramlarda ise bayram namazı sonrası insanlar büyüklerini ziyaret eder, çocuklara harçlık ve şeker dağıtılır, sofralarda birlik ve paylaşım ön plana çıkar.</p>
+        <img src="../resimler/turkiye_bayram.jpg" alt="Türkiye Bayram">
+    </div>
+
+    <div class="kultur-kart">
+        <p><strong>Düğünler:</strong><br>Türkiye'de düğünler genellikle birkaç gün süren etkinliklerdir. Kına gecesinde gelin, eline kına yakılarak geleneksel türküler eşliğinde uğurlanır. Düğün günü damat alayı ve gelin alma töreniyle başlar, düğün salonunda ya da açık havada devam eden eğlencede halaylar çekilir, çeşitli ikramlar sunulur. Bölgelere göre değişen adetlerle bu özel günler daha da renklidir.</p>
+        <img src="../resimler/turkiye_dugun.jpg" alt="Türkiye Düğün">
+    </div>
+
+    <div class="kultur-kart">
+        <p><strong>Halk Dansları:</strong><br>Türkiye’nin dört bir yanında farklı halk dansları vardır. Ege Bölgesi'nde Zeybek, cesaret ve özgürlüğü simgelerken; Güneydoğu'da Halay, kalabalık gruplarla coşkulu bir şekilde icra edilir. Karadeniz Bölgesi'nin hızlı tempolu Horon'u, kemençe eşliğinde oynanır ve adeta bölgenin enerjisini yansıtır. Bu danslar, hem folklorik kimliği hem de toplumsal dayanışmayı temsil eder.</p>
+        <img src="../resimler/turkiye_dans.jpg" alt="Türkiye Dans">
+    </div>
+</div>
+
+<div class="kultur-kart">
+    <img src="../resimler/Kapadokya.jpeg" alt="Kapadokya">
+    <p><strong>Kapadokya - Türkiye</strong></p>
+    <p class="info-text">
+      Kapadokya, eşsiz peri bacaları, yer altı şehirleri ve sıcak hava balonları ile ünlü tarihi bir bölgedir. 
+      Nevşehir ilinde bulunan bu bölge, hem doğal güzellikleri hem de kültürel mirasıyla UNESCO Dünya Mirası Listesi'nde yer almaktadır.
+    </p>
+</div>
+<div class="kultur-kart">
+    <img src="../resimler/Pamukkale.jpeg" alt="Pamukkale Travertenleri">
+    <p><strong>Pamukkale Travertenleri - Türkiye</strong></p>
+    <p class="info-text">
+      Pamukkale, Denizli ilinde yer alan ve kalsiyum karbonat içeren sıcak su kaynaklarıyla oluşmuş beyaz traverten teraslarıyla ünlüdür. 
+      Aynı zamanda antik Hierapolis kentiyle birlikte UNESCO Dünya Mirası Listesi'nde yer almaktadır.
+    </p>
+</div>
+<div class="kultur-kart">
+    <img src="../resimler/Ayasofya.jpeg" alt="Ayasofya">
+    <p><strong>Ayasofya - Türkiye</strong></p>
+    <p class="info-text">
+      İstanbul'da yer alan Ayasofya, Bizans ve Osmanlı mimarisinin eşsiz bir sentezidir. 
+      537 yılında kilise olarak inşa edilmiş, daha sonra camiye çevrilmiş ve günümüzde tekrar cami olarak kullanılmaktadır. 
+      UNESCO Dünya Mirası Listesi'nde yer alır ve mimari ihtişamıyla dünya çapında ünlüdür.
+    </p>
+</div>
+
+        <a href="../ülkeler.html" class="back-btn">← Geri Dön</a>
+    </div>
+</body>
+</html>

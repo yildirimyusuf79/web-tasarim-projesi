@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>İklim ve Coğrafya</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #eef2f3; }
+    .topbar { width: 100%; background-color: #0056b3; color: white; padding: 20px; font-size: 24px; font-weight: bold; position: fixed; top: 0; text-align: center; z-index: 1000; }
+    .menu-btn { position: absolute; left: 20px; top: 25px; background: none; border: none; color: white; font-size: 20px; cursor: pointer; }
+    .sidebar { width: 250px; background-color: #1c1c1c; color: white; padding: 20px; height: 100vh; position: fixed; left: -260px; top: 60px; transition: left 0.3s ease-in-out; z-index: 999; }
+    .sidebar.active { left: 0; }
+    .sidebar ul { list-style: none; padding: 0; margin-top: 30px; }
+    .sidebar ul li { padding: 10px; }
+    .sidebar ul li a { color: white; text-decoration: none; display: block; }
+    .content { margin-top: 130px; width: 90%; max-width: 1200px; text-align: center; margin-left: auto; margin-right: auto; }
+    .country-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin: 20px 0; }
+    .country-box { background: #2980b9; color: white; padding: 15px; border-radius: 10px; cursor: pointer; text-align: center; width: 140px; }
+    .info-box { background: #f4f4f4; padding: 20px; margin: 30px auto; border-left: 6px solid #2980b9; border-radius: 10px; color: #000; max-width: 800px; display: none; text-align: left; }
+    .event-box { background: #ffffff; padding: 15px; border-radius: 10px; margin: 20px auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); max-width: 800px; text-align: left; }
+    footer { width: 100%; background-color: #1c1c1c; color: white; text-align: center; padding: 15px; margin-top: 30px; }
+  </style>
+  <script>
+    function toggleMenu() {
+      document.querySelector(".sidebar").classList.toggle("active");
+    }
+
+    document.addEventListener("click", function(event) {
+      let menu = document.querySelector(".sidebar");
+      let button = document.querySelector(".menu-btn");
+      if (!menu.contains(event.target) && !button.contains(event.target)) {
+        menu.classList.remove("active");
+      }
+    });
+
+    const iklimBilgileri = {
+      "Türkiye": "Türkiye; Akdeniz, Karasal ve Karadeniz iklimlerinin görüldüğü bir ülkedir. Coğrafi yapısı dağlık olup üç tarafı denizlerle çevrilidir.",
+      "Azerbaycan": "Azerbaycan'da karasal ve subtropikal iklim görülür. Hazar Denizi kıyısında yer alır.",
+      "İsviçre": "İsviçre; Alp dağlarıyla kaplıdır ve iklimi yüksekliğe göre değişir.",
+      "Singapur": "Singapur'da tropikal iklim hâkimdir ve yıl boyu sıcaklık sabittir.",
+      "Arjantin": "Arjantin kuzeyde tropikal, güneyde ise Patagonya iklimine sahiptir.",
+      "Almanya": "Almanya ılıman iklim kuşağındadır, dört mevsim belirgindir.",
+      "Amerika": "Amerika'da birçok iklim tipi aynı anda görülür: Kutup, tropikal, çöl vb.",
+      "İngiltere": "İngiltere’de okyanusal ılıman iklim hâkimdir. Sık yağış alır.",
+      "İtalya": "İtalya'da Akdeniz iklimi hâkimdir. Yazları sıcak ve kuraktır.",
+      "Kanada": "Kanada'da sert kara iklimi hâkimdir. Kışlar çok soğuktur.",
+      "Fransa": "Fransa'da batıda okyanusal, güneyde Akdeniz, doğuda karasal iklimler görülür.",
+      "İspanya": "İspanya’da Akdeniz iklimi yaygındır. Yazlar sıcak, kışlar ılımandır."
+    };
+
+    const olaylar = {
+      "Türkiye": [
+        { baslik: "2023 - Kahramanmaraş Depremleri", aciklama: "7.7 ve 7.6 büyüklüğünde iki büyük deprem yaşandı." },
+        { baslik: "Erciyes ve Ağrı Dağı", aciklama: "Türkiye'de sönmüş volkanik dağlar bulunur." },
+        { baslik: "Çığ Tehlikesi", aciklama: "Doğu Anadolu'da karasal iklime bağlı sık çığlar gözlenir." }
+      ],
+      "Azerbaycan": [
+        { baslik: "Kuraklıklar", aciklama: "2000'li yıllarda artan kuraklıklar tarımı etkiledi." },
+        { baslik: "Kafkas Dağları", aciklama: "Deprem riski taşıyan alanlardandır." },
+        { baslik: "Hazar Denizi", aciklama: "Deniz seviyesi dalgalanmaları yaşanır." }
+      ],
+      "İsviçre": [
+        { baslik: "Alpler", aciklama: "Çığ olayları yaygındır." },
+        { baslik: "Buzullar", aciklama: "Erime ile nehir seviyeleri değişmektedir." },
+        { baslik: "İklim Değişikliği", aciklama: "Kayak sezonları kısalıyor." }
+      ],
+      "Singapur": [
+        { baslik: "Şiddetli Yağışlar", aciklama: "Şehir sellerine neden olur." },
+        { baslik: "Deniz Seviyesi", aciklama: "Yükselme kıyıları tehdit ediyor." },
+        { baslik: "Isı Adası Etkisi", aciklama: "Şehir merkezinde sıcaklık artışı." }
+      ],
+      "Arjantin": [
+        { baslik: "And Dağları", aciklama: "Deprem riski taşır." },
+        { baslik: "La Plata Taşkınları", aciklama: "Nehir çevresi su baskınına uğrar." },
+        { baslik: "Buzullar", aciklama: "Patagonya'da erime hızlandı." }
+      ],
+      "Almanya": [
+        { baslik: "2021 Sel Felaketi", aciklama: "Rheinland bölgesinde büyük yıkım yaşandı." },
+        { baslik: "Ren Nehri", aciklama: "Kuruma riski taşır." },
+        { baslik: "Kış Buzlanmaları", aciklama: "Ulaşımda aksamalara neden olur." }
+      ],
+      "Amerika": [
+        { baslik: "Orman Yangınları", aciklama: "Kaliforniya sık sık yangınla mücadele eder." },
+        { baslik: "Hortumlar", aciklama: "Teksas, Oklahoma ve çevresi risk altındadır." },
+        { baslik: "Kasırgalar", aciklama: "Florida kıyılarında her yıl etkili olur." }
+      ],
+      "İngiltere": [
+        { baslik: "Sel Riski", aciklama: "Yıl boyu yüksek yağışla taşkınlar görülür." },
+        { baslik: "Thames Nehri", aciklama: "Taşması kent altyapısını zorlar." },
+        { baslik: "Kıyı Erozyonu", aciklama: "Güney kıyılarında yaygındır." }
+      ],
+      "İtalya": [
+        { baslik: "Etna Yanardağı", aciklama: "Aktif volkanik faaliyet görülür." },
+        { baslik: "Po Nehri Taşkını", aciklama: "Sel felaketlerine yol açabilir." },
+        { baslik: "Alpler'de Kar", aciklama: "Kışın ulaşımı etkiler." }
+      ],
+      "Kanada": [
+        { baslik: "Kar Fırtınaları", aciklama: "Kış aylarında ulaşımı zorlaştırır." },
+        { baslik: "Orman Yangınları", aciklama: "Yaz aylarında batı bölgelerinde artış gösterir." },
+        { baslik: "Buzul Erimesi", aciklama: "Su kaynakları etkilenir." }
+      ],
+      "Fransa": [
+        { baslik: "2022 Kuraklığı", aciklama: "Tarım alanlarını tehdit etti." },
+        { baslik: "Pirene Çığları", aciklama: "Kış aylarında görülür." },
+        { baslik: "Loire Nehri", aciklama: "Su seviyesi düşmektedir." }
+      ],
+      "İspanya": [
+        { baslik: "Sıcak Hava Dalgaları", aciklama: "Enerji tüketimini artırır." },
+        { baslik: "Çölleşme Riski", aciklama: "Güneydoğu bölgelerinde ciddi tehdittir." },
+        { baslik: "Fırtına ve Seller", aciklama: "Doğu kıyılarında sık yaşanır." }
+      ]
+    };
+
+    function showCountryInfo(ulke) {
+      const box = document.getElementById("infoContainer");
+      const events = olaylar[ulke];
+      let html = `<h3>${ulke}</h3><p><strong>İklim:</strong> ${iklimBilgileri[ulke]}</p>`;
+      events.forEach(e => {
+        html += `<div class="event-box"><h4>${e.baslik}</h4><p>${e.aciklama}</p></div>`;
+      });
+      box.innerHTML = html;
+      box.style.display = "block";
+    }
+
+    // Sayfa açıldığında Türkiye bilgisi gösterilsin
+    window.onload = function () {
+      showCountryInfo("Türkiye");
+    };
+  </script>
+</head>
+<body>
+  <div class="topbar">
+    <button class="menu-btn" onclick="toggleMenu()">☰ Menü</button>
+    Countrypedia - İklim ve Coğrafya
+  </div>
+
+  <div class="sidebar">
+    <h2>Menü</h2>
+    <ul>
+      <li><a href="ülkeler.html">Ülkeler</a></li>
+      <li><a href="one_cikan_ulkeler.html">Öne Çıkan Ülkeler</a></li>
+      <li><a href="gezilecek_yerler.html">Gezilecek Yerler</a></li>
+      <li><a href="kultur_ve_gelenekler.html">Kültür ve Gelenekler</a></li>
+      <li><a href="tarihi_gelismeler.html">Tarihi Gelişmeler</a></li>
+      <li><a href="iklim_ve_cografya.html">İklim ve Coğrafya</a></li>
+      <li><a href="iletisim.html">İletişim</a></li>
+      <li><a href="hakkımızda.html">Hakkımızda</a></li>
+    </ul>
+  </div>
+
+  <div class="content">
+    <h2>İklim ve Coğrafya</h2>
+    <div class="country-grid">
+      <script>
+        for (let ulke in iklimBilgileri) {
+          document.write(`<div class="country-box" onclick="showCountryInfo('${ulke}')">${ulke}</div>`);
+        }
+      </script>
+    </div>
+    <div id="infoContainer" class="info-box"></div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Countrypedia. Tüm hakları saklıdır.</p>
+  </footer>
+</body>
+</html>

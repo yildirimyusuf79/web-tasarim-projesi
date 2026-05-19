@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countrypedia</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eef2f3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .topbar {
+            width: 100%;
+            background-color: #0056b3;
+            color: white;
+            padding: 20px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .menu-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            position: absolute;
+            left: 20px;
+            top: 25px;
+        }
+        .sidebar {
+            z-index: 1000; /* Menü her şeyin üstünde olsun */
+            width: 250px;
+            background-color: #1c1c1c;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            left: -260px;
+            top: 65px;
+            transition: left 0.3s ease-in-out;
+        }
+        .sidebar.active {
+            left: 0;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 30px;
+        }
+        .sidebar ul li {
+            padding: 10px;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+       .content {
+    margin-top: 130px;
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+    flex: 1;
+}
+        footer {
+    width: 100%;
+    background-color: #1c1c1c;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+        .konum-nokta {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: #f0ebeb; /* Şık bir renk */
+            border-radius: 50%;  /* Yuvarlak şekil */
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.4); /* Hafif gölge efekti */
+            top: 45%;   /* Yükseklik */
+            left: 56%;  /* Genişlik */
+            cursor: pointer;
+            transform: translate(-50%, -50%); /* Ortalanmış konum */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, width 0.3s ease, height 0.3s ease; /* Geçiş efekti */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px; /* Yazı boyutu */
+            color: rgb(21, 21, 21); /* Yazı rengi */
+            font-weight: bold; /* Yazı kalınlığı */
+            text-align: center;
+        }
+        
+        .konum-nokta:hover {
+            transform: translate(-50%, -50%) scale(1.2); /* Hover durumunda büyüme efekti */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.6); /* Hover durumunda gölge daha belirgin */
+            width: 40px;  /* Hoverda genişliği artır */
+            height: 40px;  /* Hoverda yüksekliği artır */
+        }
+        
+        .konum-nokta:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 15px solid #ebe8e6; /* Aynı renkten ok kısmı */
+            transform: translateX(-50%);
+        }
+        
+        /* Konum işaretinin üzerine eklenen yazıyı stilize etme */
+        .konum-nokta span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 10px;  /* Yazı boyutunu ayarla */
+            font-weight: bold; /* Yazı kalınlık */
+            color: #333; /* Yazı rengi */
+        }
+        
+    </style>
+    <script>
+        function toggleMenu() {
+            document.querySelector(".sidebar").classList.toggle("active");
+        }
+        
+        document.addEventListener("click", function(event) {
+            let menu = document.querySelector(".sidebar");
+            let button = document.querySelector(".menu-btn");
+            if (!menu.contains(event.target) && !button.contains(event.target)) {
+                menu.classList.remove("active");
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="topbar">
+        <button class="menu-btn" onclick="toggleMenu()">☰ Menü</button>
+        Countrypedia
+    </div>
+    
+    <div class="sidebar">
+        <h2>Menü</h2>
+        <ul>
+            <li><a href="ülkeler.html">Ülkeler</a></li>
+            <li><a href="gezilecek_yerler.html">Gezilecek Yerler</a></li>
+            <li><a href="kultur_ve_gelenekler.html">Kültür ve Gelenekler</a></li>
+            <li><a href="tarihi_gelismeler.html">Tarihi Gelişmeler</a></li>
+            <li><a href="iklim_ve_cografya.html">İklim ve Coğrafya</a></li>
+            <li><a href="iletisim.html">İletişim</a></li>
+            <li><a href="hakkımızda.html">Hakkımızda</a></li>
+        </ul>
+    </div>
+    
+    <div class="content">
+        <h2>Hoş Geldiniz!</h2>
+        <p>Ülkeler hakkında detaylı bilgiler için menüyü kullanabilirsiniz.</p>
+    </div>
+    <div class="harita-container" style="position: relative; max-width: 1400px; margin: auto;">
+        <img src="resimler/harita.png" alt="Dünya Haritası" style="width: 100%; height: auto;">
+
+
+        <!-- Konum Noktaları -->
+        <a href="ülkeler/turkiye.html" title="Türkiye">
+            <div class="konum-nokta" style="top: 43%; left: 56%;">
+                <span>Türkiye</span>
+            </div>
+        </a>
+        <a href="ülkeler/azerbaycan.html" title="Azerbaycan">
+            <div class="konum-nokta" style="top: 42%; left: 59%;">
+                <span>Azerbaycan</span>
+            </div>
+        </a>
+        <a href="ülkeler/isvicre.html" title="İsviçre">
+            <div class="konum-nokta" style="top: 39%; left: 50.5%;">
+                <span>İsviçre</span>
+            </div>
+        </a>
+        <a href="ülkeler/singapur.html" title="Singapur">
+            <div class="konum-nokta" style="top: 58%; left: 73%;">
+                <span>Singapur</span>
+            </div>
+        </a>
+        <a href="ülkeler/arjantin.html" title="Arjantin">
+            <div class="konum-nokta" style="top: 75%; left: 30%;">
+                <span>Arjantin</span>
+            </div>
+        </a>
+        <a href="ülkeler/almanya.html" title="Almanya">
+            <div class="konum-nokta" style="top: 37%; left: 49%;">
+                <span>Almanya</span>
+            </div>
+        </a>
+        <a href="ülkeler/abd.html" title="ABD">
+            <div class="konum-nokta" style="top: 44%; left: 22.5%;">
+                <span>ABD</span>
+            </div>
+        </a>
+        <a href="ülkeler/ingiltere.html" title="İngiltere">
+            <div class="konum-nokta" style="top: 35%; left: 46%;">
+                <span>İngiltere</span>
+            </div>
+        </a>
+        <a href="ülkeler/italya.html" title="İtalya">
+            <div class="konum-nokta" style="top: 41%; left: 49.5%;">
+                <span>İtalya</span>
+            </div>
+        </a>
+        <a href="ülkeler/kanada.html" title="Kanada">
+            <div class="konum-nokta" style="top: 34%; left: 21%;">
+                <span>Kanada</span>
+            </div>
+        </a>
+        <a href="ülkeler/fransa.html" title="Fransa">
+            <div class="konum-nokta" style="top: 39%; left: 47.5%;">
+                <span>Fransa</span>
+            </div>
+        </a>
+        <a href="ülkeler/ispanya.html" title="İspanya">
+            <div class="konum-nokta" style="top: 43%; left: 46%;">
+                <span>İspanya</span>
+            </div>
+        </a>
+        
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Countrypedia. Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html>
