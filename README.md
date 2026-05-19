@@ -1,6 +1,6 @@
 # Countrypedia
 
-Statik ve çok sayfalı ülke tanıtım web projesi.
+Statik ve çok sayfalı bir ülke tanıtım web projesi.
 
 ## Proje Hakkında
 
