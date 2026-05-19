@@ -1,6 +1,6 @@
 # Countrypedia
 
-Dünya ülkelerini; kültür, tarih, iklim, coğrafya ve gezilecek yerler açısından tanıtan, çok sayfalı bir web tasarım projesi.
+Statik ve çok sayfalı ülke tanıtım web projesi.
 
 ## Proje Hakkında
 
